@@ -1,38 +1,54 @@
 let menu;
-let mifuente;
+let miFuente;
 let estado;
-function preload(){
+let Fondosp = [];
+
+function preload() {
   
-  menu = loadImage("/assets/IMG/menu0.gif");
+  for (let i = 0; i < 3; i++) {
+    Fondosp [i] = loadImage("assets/IMG/foto" + i + ".png");
+  }
+  
+  menu = loadImage("assets/IMG/menu0.gif");
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf");
-  
-}
-function setup() {
- createCanvas(800, 450);
- noSmooth();
- textFont(miFuente);
- textSize(32);
- estado = 0;
 }
 
+function setup() {
+  createCanvas(800, 450);
+  noSmooth();
+  textFont(miFuente);
+  textSize(32);
+  estado = 0;
+}
 
 function draw() {
-  
-  //ESTADO 1
-  if (estado == 0){
   background(0);
-  image(menu, 0, 0, 800, 450);
-  fill(0);
-  rect(0,438,32,12);
-  textSize(32);
-  fill(255);
-  text("Five Night at Freddy's",width / 4, height / 4);
-  textSize(24);
-  text("Jugar", 40,240);
-  text("Creditos", 40, 280);
+  
+  // ESTADO 1
+  
+  if (estado == 0) {
+    image(menu, 0, 0, 800, 450);
+    fill(0);
+    rect(0, 438, 32, 12);
+    textSize(32);
+    fill(255);
+    text("Five Night at Freddy's", width / 4, height / 4);
+    textSize(24);
+    text("Jugar", 40, 240);
+    text("Creditos", 40, 280);
   }
+  
+  if (estado == 1) {
+    image(Fondosp[0], 0, 0, 800, 450);
+  }
+  
   // Coordenadas Mouse
   fill(255);
   textSize(20);
   text(mouseX + " " + mouseY, mouseX, mouseY);
+}
+function mousePressed(){
+  if(mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
+    estado++;
+  }
 }
