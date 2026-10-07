@@ -1,9 +1,9 @@
 let menu;
 let mifuente;
-
+let estado;
 function preload(){
   
-  menu = loadImage("/assets/IMG/menu1.gif");
+  menu = loadImage("/assets/IMG/menu0.gif");
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf");
   
 }
@@ -12,6 +12,7 @@ function setup() {
  noSmooth();
  textFont(miFuente);
  textSize(32);
+ estado = 0;
 }
 
 
@@ -20,7 +21,7 @@ function draw() {
   //ESTADO 1
   if (estado == 0){
   background(0);
-  image(menu,0,0, 800,450);
+  image(menu, 0, 0, 800, 450);
   fill(0);
   rect(0,438,32,12);
   textSize(32);
