@@ -48,7 +48,10 @@ function draw() {
   text(mouseX + " " + mouseY, mouseX, mouseY);
 }
 function mousePressed(){
-  if(mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
+  if(estado == 0 && mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
     estado++;
   }
+  //if(mouseX > 40 && mouseX < 165 &&  mouseY > 240 && mouseY < 265){
+    
+  //}
 }
