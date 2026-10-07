@@ -14,5 +14,10 @@ function setup() {
 function draw() {
   background(0);
   image(menu,0,0, 800,450);
-  //hola mundo!!!
+  fill(0);
+  
+  // Coordenadas Mouse
+  fill(255);
+  textSize(20);
+  text(mouseX + " " + mouseY, mouseX, mouseY);
 }
