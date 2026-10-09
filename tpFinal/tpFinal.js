@@ -2,15 +2,18 @@ let menu;
 let miFuente;
 let estado;
 let Fondosp = [];
+let flecha;
 
 function preload() {
   
+  // Carga De arreglo
   for (let i = 0; i < 3; i++) {
     Fondosp [i] = loadImage("assets/IMG/foto" + i + ".png");
   }
   
   menu = loadImage("assets/IMG/menu0.gif");
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf");
+  flecha = loadImage("assets/Flecha.png");
 }
 
 function setup() {
@@ -40,12 +43,20 @@ function draw() {
   
   if (estado == 1) {
     image(Fondosp[0], 0, 0, 800, 450);
+    //Dialago
     fill(0,120);
+    stroke(0);
     rect(100,300,600,130);
+    fill(255);
+    textSize(16);
+    text("Siguiente",705,435);
+    stroke(255);
+    line(705,430,790,430);
   }
   
   // Coordenadas Mouse
   fill(255);
+  stroke(0);
   textSize(20);
   text(mouseX + " " + mouseY, mouseX, mouseY);
 }
