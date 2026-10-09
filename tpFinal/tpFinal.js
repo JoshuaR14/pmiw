@@ -224,7 +224,7 @@ function mousePressed(){
   if(estado == 0 && mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
     estado++;
   }
-  if(estado >=1 && estado <=4 mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
+  if(estado >=1 && estado <=4 && mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
     estado++;
     //estado=20;
     
