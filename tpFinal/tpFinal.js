@@ -5,6 +5,7 @@ let Fondosp = [];
 let flecha;
 let grito;
 let sonidoSonado = false;
+let Spring;
 
 
 function preload() {
@@ -18,6 +19,7 @@ function preload() {
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf");
   flecha = loadImage("assets/Flecha.png");
   grito = loadSound("/assets/musica/grito.mp3");
+  Spring = loadImage("/assets/Susto/Spring.gif");
 }
 
 function setup() {
@@ -203,11 +205,15 @@ function draw() {
     textSize(48);
     textAlign(CENTER, CENTER)
     text("Gamer Over", width/2, height /2);
-    if (!sonidoSonado) {
+  }
+  //Pantalla Spring
+  if (estado == 21){  
+      image(Spring,0,0,800,450);
+      if (!sonidoSonado) {
       grito.play();
       sonidoSonado = true; // Marca que ya sonó
     }
-  }
+ }
   // Coordenadas Mouse
   fill(255);
   stroke(0);
@@ -218,12 +224,12 @@ function mousePressed(){
   if(estado == 0 && mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
     estado++;
   }
-  if(mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
+  if(estado >=1 && estado <=4 mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
     estado++;
     //estado=20;
     
   }
     if(estado == 4 && mouseX > 290 && mouseX < 435 &&  mouseY > 240 && mouseY < 290){
-    estado=20;
+    estado=21;
   }
 }
