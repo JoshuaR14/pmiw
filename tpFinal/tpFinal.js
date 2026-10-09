@@ -148,15 +148,22 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(15);
-    text("Que Pintas..",115,350);
+    text("CLANGG... CLANGG... Ruidos metalicos se escuchan desde la sala \nde la derecha. Y hacia delante hay una computadora que\nprobablemente pueda ayudar... ",115,350);
     textSize(16);
     text("Policia...",105,305);
     
         //boton siguiente
-    textSize(16);
-    text("Siguiente",705,435);
+    fill(0,120);
     stroke(255);
-    line(705,430,790,430);
+    rect(195,385,140,40);
+    rect(475,385,170,40);
+    
+    fill(255);
+    noStroke()
+    textSize(14);
+    text("Caminar hacia \nla computadora",200,410);
+    text("          Investigar \nsala de la derecha",480,410);
+
   }
           //ESTADO 6 == PANTALLA 6
   if (estado == 6) {
