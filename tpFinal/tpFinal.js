@@ -164,7 +164,7 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(15);
-    text("Que Pintas..",115,350);
+    text("Te adentras en la antigua sala de seguridad.Allí se ven dos\nductos: en el de la derecha se escuchan ruidos metálicos y\nextraños, mientras que el de la izquierda permanece en completo\nsilencio.",115,350);
     textSize(16);
     text("Policia...",105,305);
     
@@ -173,6 +173,7 @@ function draw() {
     text("Siguiente",705,435);
     stroke(255);
     line(705,430,790,430);
+    
   }
   //ESTADO 7 == PANTALLA 7
   if (estado == 7){
