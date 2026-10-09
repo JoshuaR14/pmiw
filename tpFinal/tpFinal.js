@@ -73,9 +73,9 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(15);
-    text("Que Pintas..",115,350);
+    text("Estacionas el patrullero sobre las líneas amarillas. El local está \ncompletamente a oscuras, pero se oye un zumbido eléctrico \ngrave.\nTe acercas a la única entrada principal de vidrio y la fuerzas \ncon cuidado para ingresar al complejo. ",115,350);
     textSize(16);
-    text("Policia...",105,305);
+    text("Narrador...",105,305);
     
     
     //boton siguiente
@@ -168,7 +168,9 @@ function draw() {
   
   if (estado == 20) {
     background(0);
-    text("Gamer Over", width /2, height /2);
+    textSize(48);
+    textAlign(CENTER, CENTER)
+    text("Gamer Over", width/2, height /2);
   }
   // Coordenadas Mouse
   fill(255);
@@ -181,8 +183,8 @@ function mousePressed(){
     estado++;
   }
   if(mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
-    //estado++;
-    estado=20;
+    estado++;
+    //estado=20;
     
   }
 }
