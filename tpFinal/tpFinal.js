@@ -73,7 +73,7 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(15);
-    text("Estacionas el patrullero sobre las líneas amarillas. El local está \ncompletamente a oscuras, pero se oye un zumbido eléctrico \ngrave.\nTe acercas a la única entrada principal de vidrio y la fuerzas \ncon cuidado para ingresar al complejo. ",115,350);
+    text("Estaciona el patrullero sobre las líneas amarillas. El local está \ncompletamente a oscuras, pero se oye un zumbido eléctrico \ngrave.\nTe acercas a la única entrada principal de vidrio y la fuerzas \ncon cuidado para ingresar al complejo. ",115,350);
     textSize(16);
     text("Narrador...",105,305);
     
@@ -92,10 +92,10 @@ function draw() {
     stroke(0);
     rect(100,300,600,130);
     fill(255);
-    textSize(15);
-    text("Que Pintas..",115,350);
+    textSize(15); 
+    text("Camina con la linterna en mano sobre el piso de baldosas \najedrezadas. Las mesas largas con manteles blancos y globos \ncolgantesparecen congeladas en el tiempo. A lo lejos, sobre el \nescenario principal con el telón rojo LET'S PARTY!!!, las siluetas \nde los animatrónicos lo vigilan en silencio. ",115,350);
     textSize(16);
-    text("Policia...",105,305);
+    text("Narrador...",105,305);
     
     //boton siguiente
     textSize(16);
@@ -113,7 +113,7 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(15);
-    text("Que Pintas..",115,350);
+    text("Te adentras por el pasillo inferior. El aire es pesado y huele a \nmetal oxidado. Las luces de emergencia parpadean débilmente, \nfrente a ti se encuentra un animatronico sentado resguardando\n la puerta.",115,350);
     textSize(16);
     text("Policia...",105,305);
     
