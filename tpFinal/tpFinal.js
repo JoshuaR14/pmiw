@@ -23,6 +23,7 @@ function setup() {
   textFont(miFuente);
   textSize(32);
   estado = 0;
+  opacidadrect = 255;
 }
 
 function draw() {
@@ -50,7 +51,7 @@ function draw() {
    }
     
     //Dialago
-    fill(0,120);
+    fill(0,opacidadrect);
     stroke(0);
     rect(100,300,600,130);
     fill(255);
