@@ -52,7 +52,7 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(15);
-    text("Un policia recibe un informe breve, un niño habia desaparecido\nesa misma tarde, el ultimo lugar donde alguien lo vio era frente de\nuna vieja pizzeria que llevaba años cerradas",115,350);
+    text("Un policia recibe un informe breve, un niño habia desaparecido\nesa misma tarde, el ultimo lugar donde alguien lo vio era frente \nde una vieja pizzeria que llevaba años cerradas.",115,350);
     textSize(16);
     text("Narrador...",105,300);
     
