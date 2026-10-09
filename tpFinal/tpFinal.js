@@ -15,7 +15,7 @@ function preload() {
 
 function setup() {
   createCanvas(800, 450);
-  noSmooth();
+  //noSmooth();
   textFont(miFuente);
   textSize(32);
   estado = 0;
