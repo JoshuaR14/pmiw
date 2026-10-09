@@ -45,9 +45,6 @@ function draw() {
   // ESTADO 1 == PANTALLA 1
   if (estado == 1) {
     image(Fondosp[0], 0, 0, 800, 450);
-      if (opacidadrect < 120){
-      opacidadrect += 20;
-   }
     
     //Dialago
     fill(0,120);
