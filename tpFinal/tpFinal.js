@@ -3,12 +3,12 @@ let miFuente;
 let estado;
 let Fondosp = [];
 let flecha;
-let opacidadrect;
+
 
 function preload() {
   
   // Carga De arreglo
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 8; i++) {
     Fondosp [i] = loadImage("assets/IMG/foto" + i + ".png");
   }
   
@@ -169,6 +169,29 @@ function draw() {
     text("Siguiente",705,435);
     stroke(255);
     line(705,430,790,430);
+  }
+  //ESTADO 7 == PANTALLA 7
+  if (estado == 7){
+    image(Fondosp[6], 0, 0, 800, 450);
+    
+    fill(0,120);
+    stroke(0);
+    rect(100,300,600,130);
+    fill(255);
+    textSize(15);
+    text("Que Pintas..",115,350);
+    textSize(16);
+    text("Policia...",105,305);
+    
+    //boton siguiente
+    textSize(16);
+    text("Siguiente",705,435);
+    stroke(255);
+    line(705,430,790,430);
+  }
+  
+  if (estado == 8){
+    image(Fondosp[7],0 ,0, 800, 450); 
   }
   
   //Pantalla Game Over
