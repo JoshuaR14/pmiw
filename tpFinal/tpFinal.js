@@ -24,7 +24,7 @@ function setup() {
 function draw() {
   background(0);
   
-  // ESTADO 1
+  // ESTADO 1 == PANTALLA 1/MENU
   
   if (estado == 0) {
     image(menu, 0, 0, 800, 450);
@@ -40,6 +40,8 @@ function draw() {
   
   if (estado == 1) {
     image(Fondosp[0], 0, 0, 800, 450);
+    fill(0,120);
+    rect(100,300,600,130);
   }
   
   // Coordenadas Mouse
