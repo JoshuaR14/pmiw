@@ -118,9 +118,15 @@ function draw() {
     text("Narrador...",105,305);
     
         //boton siguiente
+    fill(0,120);
+    stroke(0);
+    rect(290,240,145,50);
+    rect(600,240,145,50);
+    
+    fill(255);
     textSize(16);
-    text("Atravesar Animatronico",240,270);
-    text("Ir Hacia el Pasillo",705,435);
+    text("  Atravesar\nAnimatronico",300,270);
+    text("  Ir Hacia \nel Pasillo",630,270);
     stroke(255);
     line(705,430,790,430);
   }
