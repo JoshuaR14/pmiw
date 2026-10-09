@@ -115,11 +115,12 @@ function draw() {
     textSize(15);
     text("Te adentras por el pasillo inferior. El aire es pesado y huele a \nmetal oxidado. Las luces de emergencia parpadean débilmente, \nfrente a ti se encuentra un animatronico sentado resguardando\n la puerta.",115,350);
     textSize(16);
-    text("Policia...",105,305);
+    text("Narrador...",105,305);
     
         //boton siguiente
     textSize(16);
-    text("Siguiente",705,435);
+    text("Atravesar Animatronico",240,270);
+    text("Ir Hacia el Pasillo",705,435);
     stroke(255);
     line(705,430,790,430);
   }
