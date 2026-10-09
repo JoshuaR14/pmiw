@@ -43,13 +43,14 @@ function draw() {
   
   if (estado == 1) {
     image(Fondosp[0], 0, 0, 800, 450);
+    
     //Dialago
     fill(0,120);
     stroke(0);
     rect(100,300,600,130);
     fill(255);
     textSize(16);
-    text("Siguiente",705,435);
+    text("Siguiente",705,430);
     stroke(255);
     line(705,430,790,430);
   }
