@@ -179,9 +179,9 @@ function draw() {
     rect(600,210,145,50);
     
     fill(255);
-    textSize(16);
-    text(" Entar al ducto\n Izquierdo",130,220);
-    text(" Entrar al ducto\n Derecho",630,200);
+    textSize(15);
+    text(" Entar al ducto\n Izquierdo",132,240);
+    text(" Entrar al ducto\n Derecho",600,240);
     
     
   }
