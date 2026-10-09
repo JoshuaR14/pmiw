@@ -124,7 +124,7 @@ function draw() {
     textSize(16);
     text("Narrador...",105,305);
     
-        //boton siguiente
+        //botones
     fill(0,120);
     stroke(0);
     rect(290,240,145,50);
@@ -170,11 +170,17 @@ function draw() {
     textSize(16);
     text("Policia...",105,305);
     
-        //boton siguiente
+        //botones
+    fill(0,120);
+    stroke(0);
+    rect(130,210,145,50);
+    rect(600,210,145,50);
+    
+    fill(255);
     textSize(16);
-    text("Siguiente",705,435);
-    stroke(255);
-    line(705,430,790,430);
+    text(" Entar al ducto\n Izquierdo",130,220);
+    text(" Entrar al ducto\n Derecho",630,200);
+    
     
   }
   //ESTADO 7 == PANTALLA 7
