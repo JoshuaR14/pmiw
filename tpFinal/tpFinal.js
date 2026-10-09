@@ -6,6 +6,7 @@ let flecha;
 let grito;
 let sonidoSonado = false;
 let Spring;
+let tiempo;
 
 
 function preload() {
@@ -28,6 +29,7 @@ function setup() {
   textFont(miFuente);
   textSize(32);
   estado = 0;
+  tiempo = 0;
 }
 
 function draw() {
@@ -213,6 +215,9 @@ function draw() {
       grito.play();
       sonidoSonado = true; // Marca que ya sonó
     }
+    if (millis()-tiempo >= 4500){
+      estado-=1;
+    }
  }
   // Coordenadas Mouse
   fill(255);
@@ -232,6 +237,7 @@ function mousePressed(){
   //Atravesar Animatronico
     if(estado == 4 && mouseX > 290 && mouseX < 435 &&  mouseY > 240 && mouseY < 290){
     estado=21;
+    tiempo = millis();
   }
   //Caminar al pasillo
   if(estado == 4 && mouseX > 600 && mouseX < 745 &&  mouseY > 240 && mouseY < 290){
