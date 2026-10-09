@@ -211,6 +211,8 @@ function draw() {
     textSize(48);
     textAlign(CENTER, CENTER)
     text("Gamer Over", width/2, height /2);
+    textSize(28);
+    text("Reiniciar", width/2, 350);
   }
   //Pantalla Spring
   if (estado == 21){  
