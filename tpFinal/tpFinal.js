@@ -54,7 +54,7 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(11);
-    text("prueba de texto para ver como queda",150,350);
+    text("Un policia recibe un informe breve, un niño habia desaparecido esa misma tarde, el \nultimo lugar donde alguin lo vio era frente de una vieja pizzeria que lleavaba años\ncerradas",115,350);
     
     //boton siguiente
     textSize(16);
