@@ -23,7 +23,6 @@ function setup() {
   textFont(miFuente);
   textSize(32);
   estado = 0;
-  opacidadrect = 255;
 }
 
 function draw() {
@@ -51,12 +50,20 @@ function draw() {
    }
     
     //Dialago
-    fill(0,opacidadrect);
+    fill(0,120);
     stroke(0);
     rect(100,300,600,130);
     fill(255);
+<<<<<<< Updated upstream
     textSize(15);
     text("Un policia recibe un informe breve, un niño habia desaparecido\nesa misma tarde, el ultimo lugar donde alguien lo vio era frente de\nuna vieja pizzeria que llevaba años cerradas",115,350);
+=======
+    textSize(16);
+    text("Narrador...",105,300);
+    textSize(11);
+    text("Un policia recibe un informe breve, un niño habia desaparecido esa misma tarde, el \nultimo lugar donde alguin lo vio era frente de una vieja pizzeria que lleavaba años\ncerradas",115,350);
+>>>>>>> Stashed changes
+    
     
     //boton siguiente
     textSize(16);
