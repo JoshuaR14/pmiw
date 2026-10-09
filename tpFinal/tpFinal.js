@@ -44,12 +44,19 @@ function draw() {
   
   if (estado == 1) {
     image(Fondosp[0], 0, 0, 800, 450);
+      if (opacidadrect < 120){
+      opacidadrect += 20;
+   }
     
     //Dialago
     fill(0,120);
     stroke(0);
     rect(100,300,600,130);
     fill(255);
+    textSize(11);
+    text("prueba de texto para ver como queda",150,350);
+    
+    //boton siguiente
     textSize(16);
     text("Siguiente",705,430);
     stroke(255);
