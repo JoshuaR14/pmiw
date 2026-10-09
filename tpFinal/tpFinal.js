@@ -3,7 +3,7 @@ let miFuente;
 let estado;
 let Fondosp = [];
 let flecha;
-let opacidadrect;
+
 
 function preload() {
   
