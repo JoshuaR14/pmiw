@@ -164,6 +164,12 @@ function draw() {
     line(705,430,790,430);
   }
   
+  //Pantalla Game Over
+  
+  if (estado == 20) {
+    background(0);
+    text("Gamer Over", width /2, height /2);
+  }
   // Coordenadas Mouse
   fill(255);
   stroke(0);
@@ -175,7 +181,8 @@ function mousePressed(){
     estado++;
   }
   if(mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
-    estado++;
+    //estado++;
+    estado=20;
     
   }
 }
