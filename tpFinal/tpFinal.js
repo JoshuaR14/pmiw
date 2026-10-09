@@ -255,7 +255,7 @@ function mousePressed(){
     estado++;
   }
   //Boton Siguiente
-  if(estado >=1 && estado !=4 && mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
+  if(estado >=1 && estado !=4 && estado !=5 && mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
     estado++;
   }
   
