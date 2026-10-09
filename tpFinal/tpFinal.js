@@ -7,6 +7,7 @@ let grito;
 let sonidoSonado = false;
 let Spring;
 let tiempo;
+let sangre;
 
 
 function preload() {
@@ -19,8 +20,9 @@ function preload() {
   menu = loadImage("assets/IMG/menu0.gif");
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf");
   flecha = loadImage("assets/Flecha.png");
-  grito = loadSound("/assets/musica/grito.mp3");
+  grito = loadSound("/assets/musica/grito.wav");
   Spring = loadImage("/assets/Susto/Spring.gif");
+  sangre = loadImage("/assets/IMG/sangre.gif");
 }
 
 function setup() {
@@ -166,7 +168,7 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(15);
-    text("Te adentras en la antigua sala de seguridad.Allí se ven dos\nductos: en el de la derecha se escuchan ruidos metálicos y\nextraños, mientras que el de la izquierda permanece en completo\nsilencio.",115,350);
+    text("Te adentras en la antigua sala de seguridad. Allí se ven dos\nductos: en el de la derecha se escuchan ruidos metálicos y\nextraños, mientras que el de la izquierda permanece en completo\nsilencio.",115,350);
     textSize(16);
     text("Policia...",105,305);
     
@@ -211,9 +213,12 @@ function draw() {
   
   if (estado == 20) {
     background(0);
+    image(sangre,0,0,800,450);
     textSize(48);
     textAlign(CENTER, CENTER)
     text("Gamer Over", width/2, height /2);
+    textSize(28);
+    text("Reiniciar", width/2, 350);
   }
   //Pantalla Spring
   if (estado == 21){  
