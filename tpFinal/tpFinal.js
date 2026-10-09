@@ -6,6 +6,7 @@ let flecha;
 let grito;
 let sonidoSonado = false;
 let Spring;
+let chica;
 let tiempo;
 let sangre;
 
@@ -22,7 +23,7 @@ function preload() {
   flecha = loadImage("assets/Flecha.png");
   grito = loadSound("/assets/musica/grito.wav");
   Spring = loadImage("/assets/Susto/Spring.gif");
-  //bonnie = loadImage("/assets/Susto/bonnie.gif");
+  chica = loadImage("/assets/Susto/chica.gif");
   sangre = loadImage("/assets/IMG/sangre.gif");
 }
 
@@ -239,9 +240,10 @@ function draw() {
       estado-=1;
     }
  }
- //if (estado == 22){
- //  image(bonnie,0,0,800,450);
- //}
+ //pantalla chica
+  if (estado == 22){
+    image(chica,0,0,800,450);
+  }
  
  
   // Coordenadas Mouse
@@ -268,15 +270,15 @@ function mousePressed(){
   if(estado == 4 && mouseX > 600 && mouseX < 745 &&  mouseY > 240 && mouseY < 290){
     estado++;
   }
-  //Boton del ducto izquierdo
+  //boton del ducto izquierdo
   if (estado==6 && mouseX > 130 && mouseX < 272 && mouseY > 210 && mouseY < 260){
     estado++;
   }
   
-  //boton ducto derecho
-  //if (estado==6 mouseX >600 && mouseX < 744 && mouseY >210 && mouseY < 260){
-  //estado = 22;
-  //}
+ // boton ducto derecho
+  if (estado==6 && mouseX >600 && mouseX < 744 && mouseY >210 && mouseY < 260){
+  estado = 22;
+  }
  
     
 }
