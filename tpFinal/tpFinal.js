@@ -224,15 +224,16 @@ function mousePressed(){
   if(estado == 0 && mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
     estado++;
   }
-  if(estado >=1 && estado <=3 && mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
+  //Boton Siguiente
+  if(estado >=1 && estado !=4 && mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
     estado++;
-    //estado=20;
-    
   }
+  
   //Atravesar Animatronico
     if(estado == 4 && mouseX > 290 && mouseX < 435 &&  mouseY > 240 && mouseY < 290){
     estado=21;
   }
+  //Caminar al pasillo
   if(estado == 4 && mouseX > 600 && mouseX < 745 &&  mouseY > 240 && mouseY < 290){
     estado++;
   }
