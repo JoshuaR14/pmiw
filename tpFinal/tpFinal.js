@@ -3,6 +3,8 @@ let miFuente;
 let estado;
 let Fondosp = [];
 let flecha;
+let grito;
+let sonidoSonado = false;
 
 
 function preload() {
@@ -15,6 +17,7 @@ function preload() {
   menu = loadImage("assets/IMG/menu0.gif");
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf");
   flecha = loadImage("assets/Flecha.png");
+  grito = loadSound("/assets/musica/grito.mp3");
 }
 
 function setup() {
@@ -127,8 +130,7 @@ function draw() {
     textSize(16);
     text("  Atravesar\nAnimatronico",300,270);
     text("  Ir Hacia \nel Pasillo",630,270);
-    stroke(255);
-    line(705,430,790,430);
+ 
   }
         //ESTADO 5 == PANTALLA 5
   if (estado == 5) {
@@ -201,6 +203,10 @@ function draw() {
     textSize(48);
     textAlign(CENTER, CENTER)
     text("Gamer Over", width/2, height /2);
+    if (!sonidoSonado) {
+      grito.play();
+      sonidoSonado = true; // Marca que ya sonó
+    }
   }
   // Coordenadas Mouse
   fill(255);
@@ -216,5 +222,8 @@ function mousePressed(){
     estado++;
     //estado=20;
     
+  }
+    if(estado == 4 && mouseX > 290 && mouseX < 435 &&  mouseY > 240 && mouseY < 290){
+    estado=20;
   }
 }
