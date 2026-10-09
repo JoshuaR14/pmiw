@@ -28,7 +28,7 @@ function setup() {
 function draw() {
   background(0);
   
-  // ESTADO 1 == PANTALLA 1/MENU
+  // ESTADO 0 == PANTALLA 0/MENU
   
   if (estado == 0) {
     image(menu, 0, 0, 800, 450);
@@ -42,6 +42,7 @@ function draw() {
     text("Creditos", 40, 280);
   }
   
+  // ESTADO 1 == PANTALLA 1
   if (estado == 1) {
     image(Fondosp[0], 0, 0, 800, 450);
       if (opacidadrect < 120){
@@ -58,10 +59,15 @@ function draw() {
     
     //boton siguiente
     textSize(16);
-    text("Siguiente",705,430);
+    text("Siguiente",705,435);
     stroke(255);
     line(705,430,790,430);
   }
+  //ESTADO 2 == PANTALLA 2
+  if (estado == 2) {
+    image(Fondosp[1], 0, 0, 800, 450);
+  }
+  
   
   // Coordenadas Mouse
   fill(255);
@@ -73,7 +79,8 @@ function mousePressed(){
   if(estado == 0 && mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
     estado++;
   }
-  //if(mouseX > 40 && mouseX < 165 &&  mouseY > 240 && mouseY < 265){
+  if(mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
+    estado++;
     
-  //}
+  }
 }
