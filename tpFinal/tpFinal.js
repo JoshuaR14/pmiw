@@ -65,9 +65,7 @@ function draw() {
     image(Fondosp[0], 0, 0, 800, 450);
 
     // Diálogo
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("Un policía recibe un informe breve: un niño había desaparecido\nesa misma tarde. El último lugar donde alguien lo vio era frente\na una vieja pizzería que llevaba años cerrada.", 115, 350);
@@ -86,9 +84,7 @@ function draw() {
     image(Fondosp[1], 0, 0, 800, 450);
 
     // Diálogo
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("Estaciona el patrullero sobre las líneas amarillas. El local está\ncompletamente a oscuras, pero se oye un zumbido eléctrico\ngrave.\nTe acercas a la única entrada principal de vidrio y la fuerzas\ncon cuidado para ingresar al complejo.", 115, 350);
@@ -107,9 +103,7 @@ function draw() {
     image(Fondosp[2], 0, 0, 800, 450);
 
     // Diálogo
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("Camina con la linterna en mano sobre el piso de baldosas\najedrezadas. Las mesas largas con manteles blancos y globos\ncolgantes parecen congeladas en el tiempo. A lo lejos, sobre el\nescenario principal con el telón rojo LET'S PARTY!!!, las siluetas\nde los animatrónicos lo vigilan en silencio.", 115, 350);
@@ -128,9 +122,7 @@ function draw() {
     image(Fondosp[3], 0, 0, 800, 450);
 
     // Diálogo
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("Te adentras por el pasillo inferior. El aire es pesado y huele a\nmetal oxidado. Las luces de emergencia parpadean débilmente,\nfrente a ti se encuentra un animatrónico sentado resguardando\nla puerta.", 115, 350);
@@ -138,15 +130,8 @@ function draw() {
     text("Narrador...", 105, 305);
 
     // Botones
-    fill(0, 120);
-    stroke(0);
-    rect(290, 240, 145, 50);
-    rect(600, 240, 145, 50);
-
-    fill(255);
-    textSize(16);
-    text("  Atravesar\nAnimatrónico", 300, 270);
-    text("  Ir Hacia\nel Pasillo", 630, 270);
+    dibujarBoton(" Atravesar\nAnimatrónico", 290, 240, 145, 50);
+    dibujarBoton(" Ir Hacia\nel Pasillo", 600, 240, 145, 50);
   }
 
   // ESTADO 5 == PANTALLA 5
@@ -154,9 +139,7 @@ function draw() {
     image(Fondosp[4], 0, 0, 800, 450);
 
     // Diálogo
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("CLANGG... CLANGG... Ruidos metálicos se escuchan desde la sala\nde la derecha. Y hacia adelante hay una computadora que\nprobablemente pueda ayudar...", 115, 350);
@@ -164,16 +147,8 @@ function draw() {
     text("Narrador...", 105, 305);
 
     // Botones
-    fill(0, 120);
-    stroke(255);
-    rect(195, 385, 140, 40);
-    rect(475, 385, 170, 40);
-
-    fill(255);
-    noStroke();
-    textSize(14);
-    text("    Ir a la sala\n  de seguridad", 200, 410);
-    text("         Investigar\nsala de la derecha", 480, 410);
+    dibujarBoton("    Ir a la sala\n  de seguridad", 195, 385, 140, 40);
+    dibujarBoton("         Investigar\nsala de la derecha", 475, 385, 170, 40);
   }
 
   // ESTADO 6 == PANTALLA 6
@@ -181,9 +156,7 @@ function draw() {
     image(Fondosp[5], 0, 0, 800, 450);
 
     // Diálogo
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("Te adentras en la antigua sala de seguridad. Allí se ven dos\nductos: en el de la derecha se escuchan ruidos metálicos y\nextraños, mientras que el de la izquierda permanece en completo\nsilencio.", 115, 350);
@@ -191,24 +164,15 @@ function draw() {
     text("Narrador...", 105, 305);
 
     // Botones
-    fill(0, 120);
-    stroke(0);
-    rect(130, 210, 145, 50);
-    rect(600, 210, 145, 50);
-
-    fill(255);
-    textSize(15);
-    text(" Entrar al ducto\n    Izquierdo", 132, 240);
-    text(" Entrar al ducto\n    Derecho", 602, 240);
+    dibujarBoton(" Entrar al ducto\n    Izquierdo", 130, 210, 145, 50);
+    dibujarBoton(" Entrar al ducto\n    Derecho", 600, 210, 145, 50);
   }
 
   // ESTADO 7 == PANTALLA 7
   if (estado == 7) {
     image(Fondosp[6], 0, 0, 800, 450);
 
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("El ducto estaba oscuro y sucio, pero al final del todo se\napreciaba una luz tenue...", 115, 350);
@@ -227,9 +191,7 @@ function draw() {
     image(Fondosp[7], 0, 0, 800, 450);
 
     //Dialago
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("¡¡El niño desaparecido!! estaba acostado en una esquina de la\nhabitación; parecia recien despierto de una siesta. Tomás al niño\ny se van hacia la salida...", 115, 350);
@@ -248,9 +210,7 @@ function draw() {
     image(Fondosp[8], 0, 0, 800, 450);
 
     //Dialago
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("Recorriendo la pizzeria en silencio y con miedo, ya que tus manos\nestan ocupadas por el niño a upa, no tenes visión de nada en la\noscuridad, pero logras ver que en un pasillo al final de todo\n¡se ve una salida de emergencia! contento quieres ir corriendo,\npero escuchas un sonido metalico y pesado acercandose detras\nde ti...¿que vas a hacer? ", 115, 336);
@@ -258,14 +218,8 @@ function draw() {
     text("Narrador...", 105, 300);
 
     //elecciones
-    fill(0, 120);
-    stroke(0);
-    rect(100, 210, 145, 50);
-    rect(550, 210, 145, 50);
-    fill(255);
-    textSize(15);
-    text(" Esconderse\n bajo la mesa", 105, 240);
-    text("  correr a\n la salida", 560, 240);
+    dibujarBoton(" Esconderse\n bajo la mesa", 100, 210, 145, 50);
+    dibujarBoton("  correr a\n la salida", 550, 210, 145, 50);
   }
 
   //ESTADO 10 == PANTALLA 10
@@ -273,9 +227,7 @@ function draw() {
     image(Fondosp[10], 0, 0, 800, 450);
 
     //Dialago
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("Parece que lograron esconderse del animatronico... ", 115, 336);
@@ -286,9 +238,7 @@ function draw() {
       image(Fondosp[9], 0, 0, 800, 450);
 
       //Dialago
-      fill(0, 120);
-      stroke(0);
-      rect(100, 300, 600, 130);
+      dibujarCuadroTexto();
       fill(255);
       textSize(15);
       text("*pisadas* *pisadas* *tension*... *tension*...  ", 115, 336);
@@ -298,9 +248,7 @@ function draw() {
 
     if (millis() - tiempo >= 10000) {
       image(Fondosp[10], 0, 0, 800, 450);
-      fill(0, 120);
-      stroke(0);
-      rect(100, 300, 600, 130);
+      dibujarCuadroTexto();
       fill(255);
       textSize(15);
       text("Parece que lograron perderle el rastro, es su momento para \nescapar... ", 115, 336);
@@ -323,9 +271,7 @@ function draw() {
     image(Fondosp[11], 0, 0, 800, 450);
 
     //Dialago
-    fill(0, 120);
-    stroke(0);
-    rect(100, 300, 600, 130);
+    dibujarCuadroTexto();
     fill(255);
     textSize(15);
     text("¡¡lOGRASTE SALIR!! después de una noche llena de peligros, \nlograste rescatar al niño y sacarlo de aquella pizzería. \nAhora, de camino a casa, sabes que lo peor ya pasó. \nEl pequeño está a salvo y podra reencontrarse con su familia. ", 115, 340);
@@ -512,7 +458,7 @@ function mousePressed() {
   }
 }
 
-//Funcion Reiniciar
+// Funcion Reiniciar
 function reiniciar() {
   estado = 0;
   tiempo = 0;
@@ -524,4 +470,23 @@ function reiniciar() {
   if (grito.isPlaying()) {
     grito.stop();
   }
+}
+
+// Dibuja el cuadro translúcido base donde se colocan los textos de los diálogos
+function dibujarCuadroTexto() {
+  fill(0, 120);
+  stroke(0);
+  rect(100, 300, 600, 130);
+}
+
+// Dibuja un botón de elección con texto, dimensiones y posición personalizados
+function dibujarBoton(txt, x, y, ancho, alto) {
+  fill(0, 120);
+  stroke(0);
+  rect(x, y, ancho, alto);
+
+  fill(255);
+  noStroke();
+  textSize(15);
+  text(txt, x + 2, y + 30);
 }
