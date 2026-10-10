@@ -15,7 +15,7 @@ let volver = false;
 
 function preload() {
   // Carga del arreglo de imágenes de fondo
-  for (let i = 0; i < 11; i++) {
+  for (let i = 0; i < 12; i++) {
     Fondosp[i] = loadImage("assets/IMG/foto" + i + ".png");
   }
 
@@ -266,6 +266,20 @@ function draw() {
     text(" Esconderse\n  bajo la mesa", 105, 240);
     text("  correr a\n la salida", 560, 240);
     
+    //ESTADO 10 == PANTALLA 10
+  if (estado == 10) {
+   image(Fondosp [9],0,0,800,450); 
+    
+    //Dialago
+    fill(0, 120);
+    stroke(0);
+    rect(100, 300, 600, 130);
+    fill(255);
+    textSize(15);
+    text("Parece que lograro Lograron esconderse del animatronico... ", 115, 336);
+    textSize(16);
+    text("Narrador...", 105, 300);
+    if (millis - 
     
   }
 
