@@ -404,7 +404,9 @@ function mousePressed() {
   }
   //--- Opciones Estado 9 ---
   if (estado == 9 && mouseX > 600 && mouseX < 744 && mouseY >210 && mouseY < 260){
-   estado = 24;
+   estado = 21;
+   tiempo = millis();
+   sonidoSonado = false;
   }
 
   // --- Reiniciar desde Game Over (Estado 20) ---
