@@ -2,7 +2,6 @@ let menu;
 let miFuente;
 let estado;
 let Fondosp = [];
-let flecha;
 let grito;
 let sonidoSonado = false;
 let Spring;
@@ -10,6 +9,7 @@ let chica;
 let tiempo;
 let sangre;
 let freddy;
+let ejeY;
 
 function preload() {
   // Carga del arreglo de imágenes de fondo
@@ -18,10 +18,9 @@ function preload() {
   }
 
   menu = loadImage("assets/IMG/menu0.gif");
-  miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf");
-  flecha = loadImage("assets/Flecha.png");
+  miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf"); //Fuente de FnaF
   
-  // Rutas corregidas (sin la '/' inicial)
+  //Carga De Sonido del JumpScare
   grito = loadSound("assets/musica/grito.wav");
   sangre = loadImage("assets/IMG/sangre.gif");
 
@@ -37,6 +36,7 @@ function setup() {
   textSize(32);
   estado = 0;
   tiempo = 0;
+  ejeY = 600;
 }
 
 function draw() {
@@ -296,6 +296,11 @@ function draw() {
     textSize(28);
     text("Reiniciar", width / 2, 350);
   }
+  
+  //--- CREDITOS --- 
+  if (estado == 25){
+    background(0);
+  }
 
   // Coordenadas Mouse para guía
   textAlign(LEFT, BASELINE);
@@ -358,4 +363,8 @@ function mousePressed() {
       reiniciar();
     }
   }
+   if (estado == 0 && mouseX > 40 && mouseX < 165 && mouseY > 240 && mouseY < 265) {
+    estado = 25;
+    tiempo = millis();
+}
 }
