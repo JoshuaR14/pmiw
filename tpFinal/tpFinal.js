@@ -437,6 +437,12 @@ function mousePressed() {
     mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
     estado++;
   }
+  //Estado Final
+
+  if (estado == 11 && mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
+    estado = 25;
+    tiempo = millis();
+  }
 
   // --- Opciones Estado 4 ---
   if (estado == 4) {
