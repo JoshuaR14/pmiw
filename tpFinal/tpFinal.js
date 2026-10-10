@@ -256,12 +256,12 @@ function draw() {
     //elecciones
     fill(0, 120);
     stroke(0);
-    rect(130, 210, 145, 50);
+    rect(90, 210, 145, 50);
     rect(600, 210, 145, 50);
     fill(255);
     textSize(15);
-    text(" Entrar al ducto\n   Izquierdo", 132, 240);
-    text(" Entrar al ducto\n    Derecho", 602, 240);
+    text(" Esconderse\n  bajo la mesa", 90, 240);
+    text(" correr a\n la salida", 610, 240);
     
     
   }
@@ -302,6 +302,10 @@ function draw() {
     if (millis() - tiempo >= 4500) {
       estado = 20; // Pasa a Game Over
     }
+  }
+  // Pantalla de spring (persiguiendote)
+  if (estado == 24){
+   image(Spring, 0, 0, 800, 450);
   }
 
   // --- PANTALLA GAME OVER ---
@@ -385,6 +389,10 @@ function mousePressed() {
     estado = 22;
     tiempo = millis();
     sonidoSonado = false;
+  }
+  //--- Opciones Estado 9 ---
+  if (estado == 9 && mouseX > 600 && mouseX < 744 && mouseY >210 && mouseY < 260){
+   estado = 24;
   }
 
   // --- Reiniciar desde Game Over (Estado 20) ---
