@@ -167,8 +167,8 @@ function draw() {
     fill(255);
     noStroke();
     textSize(14);
-    text("    Ir a la sala\n  de seguridad", 200, 405);
-    text("         Investigar\nsala de la derecha", 480, 405);
+    text("    Ir a la sala\n  de seguridad", 200, 410);
+    text("         Investigar\nsala de la derecha", 480, 410);
   }
 
   // ESTADO 6 == PANTALLA 6
@@ -193,8 +193,8 @@ function draw() {
 
     fill(255);
     textSize(15);
-    text(" Entrar al ducto\n   Izquierdo", 132, 235);
-    text(" Entrar al ducto\n    Derecho", 602, 235);
+    text(" Entrar al ducto\n   Izquierdo", 132, 240);
+    text(" Entrar al ducto\n    Derecho", 602, 240);
   }
 
   // ESTADO 7 == PANTALLA 7
@@ -288,7 +288,7 @@ function draw() {
     image(sangre, 0, 0, 800, 450);
     textSize(48);
     textAlign(CENTER, CENTER);
-    fill(255, 0, 0);
+    fill(255);
     text("Game Over", width / 2, height / 2);
 
     // Botón de Reiniciar
