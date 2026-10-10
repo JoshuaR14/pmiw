@@ -223,6 +223,9 @@ function draw() {
   if (estado == 8) {
     image(Fondosp[7], 0, 0, 800, 450);
   }
+  if (estado == 9) {
+   image(Fondosp [8],0,0,800,450); 
+  }
 
   //Pantalla Game Over
 
