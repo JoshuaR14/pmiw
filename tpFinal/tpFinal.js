@@ -12,6 +12,7 @@ let freddy;
 let ejeY;
 let HomeY;
 let volver = false;
+let siguiente = false;
 
 function preload() {
   // Carga del arreglo de imágenes de fondo
@@ -306,6 +307,14 @@ function draw() {
       textSize(16);
       text("Narrador...", 105, 300);
     }
+    if (millis() - tiempo >= 12000) {
+      siguiente = true;
+      // Botón siguiente
+      textSize(16);
+      text("Siguiente", 705, 435);
+      stroke(255);
+      line(705, 430, 790, 430);
+    }
   }
   // --- JUMPSCARES ---
 
@@ -403,7 +412,7 @@ function mousePressed() {
   }
 
   // Botón Siguiente general
-  if ((estado == 1 || estado == 2 || estado == 3 || estado == 7 || estado == 8) &&
+  if ((estado == 1 || estado == 2 || estado == 3 || estado == 7 || estado == 8 || (estado == 10 && siguiente == true)) &&
     mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
     estado++;
   }
