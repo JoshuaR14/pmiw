@@ -242,6 +242,28 @@ function draw() {
   //ESTADO 9 == PANTALLA 9
   if (estado == 9) {
    image(Fondosp [8],0,0,800,450); 
+   
+    //Dialago
+    fill(0, 120);
+    stroke(0);
+    rect(100, 300, 600, 130);
+    fill(255);
+    textSize(15);
+    text("Recorriendo la pizzeria en silencio y con miedo, ya que tus manos\nestan ocupadas por el niño a upa, no tenes visión de nada en la\noscuridad, pero logras ver que en un pasillo al final de todo\n¡se ve una salida de emergencia! contento quieres ir corriendo,\npero escuchas un sonido metalico y pesado acercandose detras\nde ti...¿que vas a hacer? ", 115, 336);
+    textSize(16);
+    text("Narrador...", 105, 300);
+    
+    //elecciones
+    fill(0, 120);
+    stroke(0);
+    rect(130, 210, 145, 50);
+    rect(600, 210, 145, 50);
+    fill(255);
+    textSize(15);
+    text(" Entrar al ducto\n   Izquierdo", 132, 240);
+    text(" Entrar al ducto\n    Derecho", 602, 240);
+    
+    
   }
 
   // --- JUMPSCARES ---
