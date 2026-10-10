@@ -9,22 +9,26 @@ let Spring;
 let chica;
 let tiempo;
 let sangre;
+let freddy;
 
 
 function preload() {
-  
+
   // Carga De arreglo
   for (let i = 0; i < 9; i++) {
     Fondosp [i] = loadImage("assets/IMG/foto" + i + ".png");
   }
-  
+
   menu = loadImage("assets/IMG/menu0.gif");
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf");
   flecha = loadImage("assets/Flecha.png");
   grito = loadSound("/assets/musica/grito.wav");
+  sangre = loadImage("/assets/IMG/sangre.gif");
+  
+  //Animatronicos
   Spring = loadImage("/assets/Susto/Spring.gif");
   chica = loadImage("/assets/Susto/chica.gif");
-  sangre = loadImage("/assets/IMG/sangre.gif");
+  freddy = loadImage("/assets/Susto/freddy.gif");
 }
 
 function setup() {
@@ -38,9 +42,9 @@ function setup() {
 
 function draw() {
   background(0);
-  
+
   // ESTADO 0 == PANTALLA 0/MENU
-  
+
   if (estado == 0) {
     image(menu, 0, 0, 800, 450);
     fill(0);
@@ -52,167 +56,179 @@ function draw() {
     text("Jugar", 40, 240);
     text("Creditos", 40, 280);
   }
-  
+
   // ESTADO 1 == PANTALLA 1
   if (estado == 1) {
     image(Fondosp[0], 0, 0, 800, 450);
-    
+
     //Dialago
-    fill(0,120);
+    fill(0, 120);
     stroke(0);
-    rect(100,300,600,130);
+    rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("Un policia recibe un informe breve, un niño habia desaparecido\nesa misma tarde, el ultimo lugar donde alguien lo vio era frente \nde una vieja pizzeria que llevaba años cerradas.",115,350);
+    text("Un policia recibe un informe breve, un niño habia desaparecido\nesa misma tarde, el ultimo lugar donde alguien lo vio era frente \nde una vieja pizzeria que llevaba años cerradas.", 115, 350);
     textSize(16);
-    text("Narrador...",105,300);
-    
-    
+    text("Narrador...", 105, 300);
+
+
     //boton siguiente
     textSize(16);
-    text("Siguiente",705,435);
+    text("Siguiente", 705, 435);
     stroke(255);
-    line(705,430,790,430);
+    line(705, 430, 790, 430);
   }
   //ESTADO 2 == PANTALLA 2
   if (estado == 2) {
     image(Fondosp[1], 0, 0, 800, 450);
-    
-    //Dialago
-    fill(0,120);
+
+    //Dialogo
+    fill(0, 120);
     stroke(0);
-    rect(100,300,600,130);
+    rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("Estaciona el patrullero sobre las líneas amarillas. El local está \ncompletamente a oscuras, pero se oye un zumbido eléctrico \ngrave.\nTe acercas a la única entrada principal de vidrio y la fuerzas \ncon cuidado para ingresar al complejo. ",115,350);
+    text("Estaciona el patrullero sobre las líneas amarillas. El local está \ncompletamente a oscuras, pero se oye un zumbido eléctrico \ngrave.\nTe acercas a la única entrada principal de vidrio y la fuerzas \ncon cuidado para ingresar al complejo. ", 115, 350);
     textSize(16);
-    text("Narrador...",105,305);
-    
-    
+    text("Narrador...", 105, 305);
+
+
     //boton siguiente
     textSize(16);
-    text("Siguiente",705,435);
+    text("Siguiente", 705, 435);
     stroke(255);
-    line(705,430,790,430);
+    line(705, 430, 790, 430);
   }
-    //ESTADO 3 == PANTALLA 3
+  
+  //ESTADO 3 == PANTALLA 3
   if (estado == 3) {
     image(Fondosp[2], 0, 0, 800, 450);
-      //Dialago
-    fill(0,120);
+    //Dialogo
+    fill(0, 120);
     stroke(0);
-    rect(100,300,600,130);
+    rect(100, 300, 600, 130);
     fill(255);
-    textSize(15); 
-    text("Camina con la linterna en mano sobre el piso de baldosas \najedrezadas. Las mesas largas con manteles blancos y globos \ncolgantesparecen congeladas en el tiempo. A lo lejos, sobre el \nescenario principal con el telón rojo LET'S PARTY!!!, las siluetas \nde los animatrónicos lo vigilan en silencio. ",115,350);
+    textSize(15);
+    text("Camina con la linterna en mano sobre el piso de baldosas \najedrezadas. Las mesas largas con manteles blancos y globos \ncolgantesparecen congeladas en el tiempo. A lo lejos, sobre el \nescenario principal con el telón rojo LET'S PARTY!!!, las siluetas \nde los animatrónicos lo vigilan en silencio. ", 115, 350);
     textSize(16);
-    text("Narrador...",105,305);
-    
+    text("Narrador...", 105, 305);
+
     //boton siguiente
     textSize(16);
-    text("Siguiente",705,435);
+    text("Siguiente", 705, 435);
     stroke(255);
-    line(705,430,790,430);
+    line(705, 430, 790, 430);
   }
-      //ESTADO 4 == PANTALLA 4
+  
+  //ESTADO 4 == PANTALLA 4
   if (estado == 4) {
     image(Fondosp[3], 0, 0, 800, 450);
-      
-    //Dialago
-    fill(0,120);
+
+    //Dialogo
+    fill(0, 120);
     stroke(0);
-    rect(100,300,600,130);
+    rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("Te adentras por el pasillo inferior. El aire es pesado y huele a \nmetal oxidado. Las luces de emergencia parpadean débilmente, \nfrente a ti se encuentra un animatronico sentado resguardando\n la puerta.",115,350);
+    text("Te adentras por el pasillo inferior. El aire es pesado y huele a \nmetal oxidado. Las luces de emergencia parpadean débilmente, \nfrente a ti se encuentra un animatronico sentado resguardando\n la puerta.", 115, 350);
     textSize(16);
-    text("Narrador...",105,305);
-    
-        //botones
-    fill(0,120);
+    text("Narrador...", 105, 305);
+
+    //botones
+    fill(0, 120);
     stroke(0);
-    rect(290,240,145,50);
-    rect(600,240,145,50);
-    
+    rect(290, 240, 145, 50);
+    rect(600, 240, 145, 50);
+
     fill(255);
     textSize(16);
-    text("  Atravesar\nAnimatronico",300,270);
-    text("  Ir Hacia \nel Pasillo",630,270);
- 
+    text("  Atravesar\nAnimatronico", 300, 270);
+    text("  Ir Hacia \nel Pasillo", 630, 270);
   }
-        //ESTADO 5 == PANTALLA 5
+
+  //ESTADO 5 == PANTALLA 5
   if (estado == 5) {
     image(Fondosp[4], 0, 0, 800, 450);
-      
-    //Dialago
-    fill(0,120);
+    tiempo= millis();
+
+    //Dialogo
+    fill(0, 120);
     stroke(0);
-    rect(100,300,600,130);
+    rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("CLANGG... CLANGG... Ruidos metalicos se escuchan desde la sala \nde la derecha. Y hacia delante hay una computadora que\nprobablemente pueda ayudar... ",115,350);
+    text("CLANGG... CLANGG... Ruidos metalicos se escuchan desde la sala \nde la derecha. Y hacia delante hay una computadora que\nprobablemente pueda ayudar... ", 115, 350);
     textSize(16);
-    text("Policia...",105,305);
-    
-        //boton siguiente
-    fill(0,120);
+    text("Narrador...", 105, 305);
+
+    //boton siguiente
+    fill(0, 120);
     stroke(255);
-    rect(195,385,140,40);
-    rect(475,385,170,40);
-    
+    rect(195, 385, 140, 40);
+    rect(475, 385, 170, 40);
+
     fill(255);
     noStroke()
-    textSize(14);
-    text("    ir a la sala\n de seguridad",200,410);
-    text("          Investigar \nsala de la derecha",480,410);
-
+      textSize(14);
+    text("    ir a la sala\n de seguridad", 200, 410);
+    text("          Investigar \nsala de la derecha", 480, 410);
   }
-          //ESTADO 6 == PANTALLA 6
+
+  //ESTADO 6 == PANTALLA 6
   if (estado == 6) {
     image(Fondosp[5], 0, 0, 800, 450);
-      
-    //Dialago
-    fill(0,120);
+    tiempo = millis();
+
+    //Dialogo
+    fill(0, 120);
     stroke(0);
-    rect(100,300,600,130);
+    rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("Te adentras en la antigua sala de seguridad. Allí se ven dos\nductos: en el de la derecha se escuchan ruidos metálicos y\nextraños, mientras que el de la izquierda permanece en completo\nsilencio.",115,350);
+    text("Te adentras en la antigua sala de seguridad. Allí se ven dos\nductos: en el de la derecha se escuchan ruidos metálicos y\nextraños, mientras que el de la izquierda permanece en completo\nsilencio.", 115, 350);
     textSize(16);
-    text("Policia...",105,305);
-    
-        //botones
-    fill(0,120);
+    text("Narrador...", 105, 305);
+
+    //botones
+    fill(0, 120);
     stroke(0);
-    rect(130,210,145,50);
-    rect(600,210,145,50);
-    
+    rect(130, 210, 145, 50);
+    rect(600, 210, 145, 50);
+
     fill(255);
     textSize(15);
-    text(" Entar al ducto\n Izquierdo",132,240);
-    text(" Entrar al ducto\n Derecho",600,240);
-    
-    
+    text(" Entar al ducto\n Izquierdo", 132, 240);
+    text(" Entrar al ducto\n Derecho", 600, 240);
   }
+<<<<<<< HEAD
   //ESTADO 7 = PANTALLA 7
   if (estado == 7){
+=======
+  //ESTADO 7 == PANTALLA 7
+  if (estado == 7) {
+>>>>>>> 695f7c95d6f6fb2f182d052836fd5ed2ace12bcc
     image(Fondosp[6], 0, 0, 800, 450);
-    
-    fill(0,120);
+
+    fill(0, 120);
     stroke(0);
-    rect(100,300,600,130);
+    rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
+<<<<<<< HEAD
     text("El ducto estaba oscuro, pero al final de todo se ve\nuna luz tenue...",115,350);
+=======
+    text("Que Pintas..", 115, 350);
+>>>>>>> 695f7c95d6f6fb2f182d052836fd5ed2ace12bcc
     textSize(16);
-    text("Policia...",105,305);
-    
+    text("Policia...", 105, 305);
+
     //boton siguiente
     textSize(16);
-    text("Siguiente",705,435);
+    text("Siguiente", 705, 435);
     stroke(255);
-    line(705,430,790,430);
+    line(705, 430, 790, 430);
   }
+<<<<<<< HEAD
   // ESTADO 8 = PANTALLA 8
   if (estado == 8){
     image(Fondosp[7],0 ,0, 800, 450); 
@@ -226,74 +242,106 @@ function draw() {
   //ESTADO == PANTALLA 9
   if (estado == 9){
     image (Fondosp[8], 0, 0, 800, 450);
+=======
+
+  if (estado == 8) {
+    image(Fondosp[7], 0, 0, 800, 450);
+>>>>>>> 695f7c95d6f6fb2f182d052836fd5ed2ace12bcc
   }
-  
+
   //Pantalla Game Over
-  
+
   if (estado == 20) {
     background(0);
-    image(sangre,0,0,800,450);
+    image(sangre, 0, 0, 800, 450);
     textSize(48);
     textAlign(CENTER, CENTER)
-    text("Gamer Over", width/2, height /2);
+      text("Gamer Over", width/2, height /2);
     textSize(28);
     text("Reiniciar", width/2, 350);
   }
+  
+  
+  //JUMP SCARESSS
+  
+  
   //Pantalla Spring
-  if (estado == 21){  
-      image(Spring,0,0,800,450);
-      if (!sonidoSonado) {
+  if (estado == 21) {
+    image(Spring, 0, 0, 800, 450);
+    if (!sonidoSonado) {
       grito.play();
       sonidoSonado = true; // Marca que ya sonó
     }
-    if (millis()-tiempo >= 4500){
+    if (millis()-tiempo >= 4500) {
+      estado-=1;
+      tiempo = millis();
+    }
+  }
+  
+  //Pantalla chica
+  if (estado == 22) {
+    image(chica, 0, 0, 800, 450);
+    if (!sonidoSonado) {
+      grito.play();
+      sonidoSonado = true; // Marca que ya sonó
+    }
+    if (millis()-tiempo >= 4500) {
       estado-=1;
     }
- }
- //pantalla chica
-  if (estado == 22){
-    image(chica,0,0,800,450);
   }
- 
- 
+  
+  //Pantalla Freddy
+    if (estado == 23) {
+    image(freddy, 0, 0, 800, 450);
+    if (!sonidoSonado) {
+      grito.play();
+      sonidoSonado = true; // Marca que ya sonó
+    }
+    if (millis()-tiempo >= 4500) {
+      estado-=1;
+    }
+  }
+
+
   // Coordenadas Mouse
   fill(255);
   stroke(0);
   textSize(20);
   text(mouseX + " " + mouseY, mouseX, mouseY);
 }
-function mousePressed(){
+function mousePressed() {
   //Boton Menu
-  if(estado == 0 && mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
+  if (estado == 0 && mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230) {
     estado++;
   }
   //Boton Siguiente
-  if(estado >=1 && estado !=4 && estado !=5 && mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430){
+  if (estado >=1 && estado !=4 && estado !=5 && mouseX > 705 && mouseX < 790 &&  mouseY > 405 && mouseY < 430) {
     estado++;
   }
-  
+
   //Atravesar Animatronico
-    if(estado == 4 && mouseX > 290 && mouseX < 435 &&  mouseY > 240 && mouseY < 290){
+  if (estado == 4 && mouseX > 290 && mouseX < 435 &&  mouseY > 240 && mouseY < 290) {
     estado=21;
     tiempo = millis();
   }
   //Caminar al pasillo
-  if(estado == 4 && mouseX > 600 && mouseX < 745 &&  mouseY > 240 && mouseY < 290){
+  if (estado == 4 && mouseX > 600 && mouseX < 745 &&  mouseY > 240 && mouseY < 290) {
     estado++;
   }
-  //estado 5
-  if (estado == 5&& mouseX >195 && mouseX <335 && mouseY >285 && mouseY < 425){
+  //Estado 5
+  if (estado == 5&& mouseX >195 && mouseX <335 && mouseY >285 && mouseY < 425) {
     estado++
   }
+  if (estado == 5&& mouseX >475 && mouseX <645 && mouseY >285 && mouseY < 425) { //Jumscare Freddy
+    estado = 23; // Jumpscare Freddy
+  }
   //boton del ducto izquierdo
-  if (estado==6 && mouseX > 130 && mouseX < 272 && mouseY > 210 && mouseY < 260){
+  if (estado==6 && mouseX > 130 && mouseX < 272 && mouseY > 210 && mouseY < 260) {
     estado++;
   }
-  
- // boton ducto derecho
-  if (estado==6 && mouseX >600 && mouseX < 744 && mouseY >210 && mouseY < 260){
-  estado = 22;
+
+  // boton ducto derecho
+  if (estado==6 && mouseX >600 && mouseX < 744 && mouseY >210 && mouseY < 260) {
+    estado = 22;
   }
- 
-    
 }
