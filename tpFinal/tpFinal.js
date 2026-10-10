@@ -265,42 +265,40 @@ function draw() {
   //JUMP SCARESSS
   
   
-// Pantalla Spring 
+  //Pantalla Spring
   if (estado == 21) {
     image(Spring, 0, 0, 800, 450);
     if (!sonidoSonado) {
       grito.play();
-      sonidoSonado = true;
+      sonidoSonado = true; // Marca que ya sonó
     }
-    if (millis() - tiempo >= 4500) {
-      estado = 20; // Pasa a Game Over
-      sonidoSonado = false; // Se resetea para la próxima
+    if (millis()-tiempo >= 4500) {
+      estado-=1;
+      tiempo = millis();
     }
   }
-
-  // Pantalla Chica 
+  
+  //Pantalla chica
   if (estado == 22) {
     image(chica, 0, 0, 800, 450);
     if (!sonidoSonado) {
       grito.play();
-      sonidoSonado = true;
+      sonidoSonado = true; // Marca que ya sonó
     }
-    if (millis() - tiempo >= 4500) {
-      estado = 20; // Pasa a Game Over
-      sonidoSonado = false;
+    if (millis()-tiempo >= 4500) {
+      estado-=1;
     }
   }
-
-  // Pantalla Freddy
-  if (estado == 23) {
+  
+  //Pantalla Freddy
+    if (estado == 23) {
     image(freddy, 0, 0, 800, 450);
     if (!sonidoSonado) {
       grito.play();
-      sonidoSonado = true;
+      sonidoSonado = true; // Marca que ya sonó
     }
-    if (millis() - tiempo >= 4500) {
-      estado = 20; // Pasa a Game Over
-      sonidoSonado = false;
+    if (millis()-tiempo >= 4500) {
+      estado-=1;
     }
   }
 
@@ -345,12 +343,5 @@ function mousePressed() {
   // boton ducto derecho
   if (estado==6 && mouseX >600 && mouseX < 744 && mouseY >210 && mouseY < 260) {
     estado = 22;
-  }
-  //Boton Reiniciar
-  if (estado == 20) {
-    // Si hace clic en la zona del texto "Reiniciar"
-    if (mouseX > 320 && mouseX < 480 && mouseY > 330 && mouseY < 370) {
-      reiniciar();
-    }
   }
 }
