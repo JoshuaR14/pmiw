@@ -300,6 +300,13 @@ function draw() {
   //--- CREDITOS --- 
   if (estado == 25){
     background(0);
+    text("Trabajo Nº2 de Programación \npara medios interactivos orientada\na las tecnologías web.",width /4, ejeY);
+    text("Elaborado por:\nJoshua Romero Legajo: 125681/8. \nLujan Samudio Legajo: 125683/0.",width /4, ejeY+100);
+    text("Basado en el juego: \nFive nights at freddy's",width /4, ejeY+200);
+    
+    if(ejeY > -300){
+      ejeY -= 1;
+    }
   }
 
   // Coordenadas Mouse para guía
