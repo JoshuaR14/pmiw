@@ -259,12 +259,12 @@ function draw() {
     //elecciones
     fill(0, 120);
     stroke(0);
-    rect(90, 210, 145, 50);
-    rect(600, 210, 145, 50);
+    rect(100, 210, 145, 50);
+    rect(550, 210, 145, 50);
     fill(255);
     textSize(15);
-    text(" Esconderse\n  bajo la mesa", 90, 240);
-    text(" correr a\n la salida", 610, 240);
+    text(" Esconderse\n  bajo la mesa", 105, 240);
+    text("  correr a\n la salida", 560, 240);
     
     
   }
