@@ -245,6 +245,28 @@ function draw() {
   //ESTADO 9 == PANTALLA 9
   if (estado == 9) {
    image(Fondosp [8],0,0,800,450); 
+   
+    //Dialago
+    fill(0, 120);
+    stroke(0);
+    rect(100, 300, 600, 130);
+    fill(255);
+    textSize(15);
+    text("Recorriendo la pizzeria en silencio y con miedo, ya que tus manos\nestan ocupadas por el niño a upa, no tenes visión de nada en la\noscuridad, pero logras ver que en un pasillo al final de todo\n¡se ve una salida de emergencia! contento quieres ir corriendo,\npero escuchas un sonido metalico y pesado acercandose detras\nde ti...¿que vas a hacer? ", 115, 336);
+    textSize(16);
+    text("Narrador...", 105, 300);
+    
+    //elecciones
+    fill(0, 120);
+    stroke(0);
+    rect(90, 210, 145, 50);
+    rect(600, 210, 145, 50);
+    fill(255);
+    textSize(15);
+    text(" Esconderse\n  bajo la mesa", 90, 240);
+    text(" correr a\n la salida", 610, 240);
+    
+    
   }
 
   // --- JUMPSCARES ---
@@ -283,6 +305,10 @@ function draw() {
     if (millis() - tiempo >= 4500) {
       estado = 20; // Pasa a Game Over
     }
+  }
+  // Pantalla de spring (persiguiendote)
+  if (estado == 24){
+   image(Spring, 0, 0, 800, 450);
   }
 
   // --- PANTALLA GAME OVER ---
@@ -375,6 +401,10 @@ function mousePressed() {
     estado = 22;
     tiempo = millis();
     sonidoSonado = false;
+  }
+  //--- Opciones Estado 9 ---
+  if (estado == 9 && mouseX > 600 && mouseX < 744 && mouseY >210 && mouseY < 260){
+   estado = 24;
   }
 
   // --- Reiniciar desde Game Over (Estado 20) ---
