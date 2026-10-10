@@ -206,7 +206,7 @@ function draw() {
     rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("Qué pintas...", 115, 350);
+    text("El ducto estaba oscuro y sucio, pero al final del todo se\napreciaba una luz tenue...", 115, 350);
     textSize(16);
     text("Policía...", 105, 305);
 
@@ -227,7 +227,7 @@ function draw() {
     rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("xorra.", 115, 350);
+    text("¡¡El niño desaparecido!! estaba acostado en una esquina de la habitacion, recien despierto de una siesta.", 115, 350);
     textSize(16);
     text("Narrador...", 105, 300);
     
