@@ -266,8 +266,8 @@ function draw() {
     text(" Esconderse\n  bajo la mesa", 105, 240);
     text("  correr a\n la salida", 560, 240);
     
-    
   }
+  
 
   // --- JUMPSCARES ---
 
@@ -306,10 +306,7 @@ function draw() {
       estado = 20; // Pasa a Game Over
     }
   }
-  // Pantalla de spring (persiguiendote)
-  if (estado == 24){
-   image(Spring, 0, 0, 800, 450);
-  }
+ 
 
   // --- PANTALLA GAME OVER ---
   if (estado == 20) {
@@ -407,6 +404,9 @@ function mousePressed() {
    estado = 21;
    tiempo = millis();
    sonidoSonado = false;
+  }
+  if (estado == 9 && mouseX > 100 && mouseX < 240 && mouseY >210 && mouseY < 260){
+    estado = 10;
   }
 
   // --- Reiniciar desde Game Over (Estado 20) ---
