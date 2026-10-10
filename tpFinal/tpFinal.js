@@ -12,6 +12,7 @@ let freddy;
 let ejeY;
 let HomeY;
 let volver = false;
+let siguiente = false;
 
 function preload() {
   // Carga del arreglo de imágenes de fondo
@@ -21,7 +22,7 @@ function preload() {
 
   menu = loadImage("assets/IMG/menu0.gif");
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf"); //Fuente de FnaF
-  
+
   //Carga De Sonido del JumpScare
   grito = loadSound("assets/musica/grito.wav");
   sangre = loadImage("assets/IMG/sangre.gif");
@@ -220,12 +221,12 @@ function draw() {
     stroke(255);
     line(705, 430, 790, 430);
   }
-  
+
   //ESTADO 8 == PANTALLA 8
   if (estado == 8) {
     image(Fondosp[7], 0, 0, 800, 450);
-    
-     //Dialago
+
+    //Dialago
     fill(0, 120);
     stroke(0);
     rect(100, 300, 600, 130);
@@ -234,19 +235,19 @@ function draw() {
     text("¡¡El niño desaparecido!! estaba acostado en una esquina de la\nhabitación; parecia recien despierto de una siesta. Tomás al niño\ny se van hacia la salida...", 115, 350);
     textSize(16);
     text("Narrador...", 105, 300);
-    
+
     //boton siguiente
     textSize(16);
     text("Siguiente", 705, 435);
     stroke(255);
     line(705, 430, 790, 430);
   }
-  
-  
+
+
   //ESTADO 9 == PANTALLA 9
   if (estado == 9) {
-   image(Fondosp [8],0,0,800,450); 
-   
+    image(Fondosp [8], 0, 0, 800, 450);
+
     //Dialago
     fill(0, 120);
     stroke(0);
@@ -256,7 +257,7 @@ function draw() {
     text("Recorriendo la pizzeria en silencio y con miedo, ya que tus manos\nestan ocupadas por el niño a upa, no tenes visión de nada en la\noscuridad, pero logras ver que en un pasillo al final de todo\n¡se ve una salida de emergencia! contento quieres ir corriendo,\npero escuchas un sonido metalico y pesado acercandose detras\nde ti...¿que vas a hacer? ", 115, 336);
     textSize(16);
     text("Narrador...", 105, 300);
-    
+
     //elecciones
     fill(0, 120);
     stroke(0);
@@ -266,22 +267,54 @@ function draw() {
     textSize(15);
     text(" Esconderse\n  bajo la mesa", 105, 240);
     text("  correr a\n la salida", 560, 240);
-    
   }
-      //ESTADO 10 == PANTALLA 10
+  //ESTADO 10 == PANTALLA 10
   if (estado == 10) {
-   image(Fondosp [9],0,0,800,450); 
-    
+    image(Fondosp [10], 0, 0, 800, 450);
+
     //Dialago
     fill(0, 120);
     stroke(0);
     rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("Parece que lograro Lograron esconderse del animatronico... ", 115, 336);
+    text("Parece que lograron esconderse del animatronico... ", 115, 336);
     textSize(16);
     text("Narrador...", 105, 300);
-    //if (millis - 
+
+    if (millis() - tiempo >= 5000) {
+      image(Fondosp [9], 0, 0, 800, 450);
+
+      //Dialago
+      fill(0, 120);
+      stroke(0);
+      rect(100, 300, 600, 130);
+      fill(255);
+      textSize(15);
+      text("*pisadas* *pisadas* *tension*... *tension*...  ", 115, 336);
+      textSize(16);
+      text("Narrador...", 105, 300);
+    }
+
+    if (millis() - tiempo >= 10000) {
+      image(Fondosp [10], 0, 0, 800, 450);
+      fill(0, 120);
+      stroke(0);
+      rect(100, 300, 600, 130);
+      fill(255);
+      textSize(15);
+      text("Parece que lograron perderle el rastro, es su momento para \nescapar... ", 115, 336);
+      textSize(16);
+      text("Narrador...", 105, 300);
+    }
+    if (millis() - tiempo >= 12000) {
+      siguiente = true;
+      // Botón siguiente
+      textSize(16);
+      text("Siguiente", 705, 435);
+      stroke(255);
+      line(705, 430, 790, 430);
+    }
   }
   
   //ESTADO 11 == PANTALLA 11
@@ -354,27 +387,26 @@ function draw() {
     textSize(28);
     text("Reiniciar", width / 2, 350);
   }
-  
-  //--- CREDITOS --- 
-  if (estado == 25){
+
+  //--- CREDITOS ---
+  if (estado == 25) {
     background(0);
-    text("Trabajo Nº2 de Programación \npara medios interactivos orientada\na las tecnologías web.",width /4, ejeY);
-    text("Elaborado por:\nJoshua Romero Legajo: 125681/8. \nLujan Samudio Legajo: 125683/0.",width /4, ejeY+125);
-    text("Comision N2\nProfesor: Matias Jauregio Lorda.",width /4, ejeY+250);
-    text("Basado en el juego: \nFive nights at freddy's.",width /4, ejeY+350);
-    text("Gracias Por Su tiempo!",width /4, ejeY+425);
+    text("Trabajo Nº2 de Programación \npara medios interactivos orientada\na las tecnologías web.", width /4, ejeY);
+    text("Elaborado por:\nJoshua Romero Legajo: 125681/8. \nLujan Samudio Legajo: 125683/0.", width /4, ejeY+125);
+    text("Comision N2\nProfesor: Matias Jauregio Lorda.", width /4, ejeY+250);
+    text("Basado en el juego: \nFive nights at freddy's.", width /4, ejeY+350);
+    text("Gracias Por Su tiempo!", width /4, ejeY+425);
     textSize(36);
     text("Volver Al Menu", 230, HomeY);
-    if(ejeY > -600){
+    if (ejeY > -600) {
       ejeY -= 1;
     }
-    if(HomeY > 260){
+    if (HomeY > 260) {
       HomeY-=1;
     }
-    if(HomeY == 260){
+    if (HomeY == 260) {
       volver = true;
     }
-    
   }
 
   // Coordenadas Mouse para guía
@@ -386,7 +418,7 @@ function draw() {
 }
 
 function mousePressed() {
-  // Botón Jugar (Menú - Estado 0)
+  // Botón Jugar
   if (estado == 0 && mouseX > 40 && mouseX < 130 && mouseY > 200 && mouseY < 230) {
     estado = 1;
   }
@@ -397,9 +429,9 @@ function mousePressed() {
     tiempo = millis();
   }
 
-  // Botón Siguiente general (PANTALLAS NARRATIVAS: 1, 2, 3, 7, 8)
-  if ((estado == 1 || estado == 2 || estado == 3 || estado == 7 || estado == 8) && 
-      mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
+  // Botón Siguiente general
+  if ((estado == 1 || estado == 2 || estado == 3 || estado == 7 || estado == 8 || (estado == 10 && siguiente == true)) &&
+    mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
     estado++;
   }
 
@@ -444,12 +476,13 @@ function mousePressed() {
       sonidoSonado = false;
     } else if (mouseX > 100 && mouseX < 245 && mouseY > 210 && mouseY < 260) { // Esconderse
       estado = 10;
+      tiempo = millis();
     }
   }
 
   // --- Reiniciar desde Game Over (Estado 20) ---
   if (estado == 20) {
-    // Rango ampliado para abarcar mejor el área centrada del texto "Reiniciar"
+    // "Reiniciar"
     if (mouseX > 300 && mouseX < 500 && mouseY > 320 && mouseY < 380) {
       reiniciar();
     }
