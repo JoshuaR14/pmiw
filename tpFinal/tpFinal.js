@@ -15,7 +15,7 @@ let freddy;
 function preload() {
 
   // Carga De arreglo
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 8; i++) {
     Fondosp [i] = loadImage("assets/IMG/foto" + i + ".png");
   }
 
@@ -200,13 +200,8 @@ function draw() {
     text(" Entar al ducto\n Izquierdo", 132, 240);
     text(" Entrar al ducto\n Derecho", 600, 240);
   }
-<<<<<<< HEAD
-  //ESTADO 7 = PANTALLA 7
-  if (estado == 7){
-=======
   //ESTADO 7 == PANTALLA 7
   if (estado == 7) {
->>>>>>> 695f7c95d6f6fb2f182d052836fd5ed2ace12bcc
     image(Fondosp[6], 0, 0, 800, 450);
 
     fill(0, 120);
@@ -214,11 +209,7 @@ function draw() {
     rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-<<<<<<< HEAD
-    text("El ducto estaba oscuro, pero al final de todo se ve\nuna luz tenue...",115,350);
-=======
     text("Que Pintas..", 115, 350);
->>>>>>> 695f7c95d6f6fb2f182d052836fd5ed2ace12bcc
     textSize(16);
     text("Policia...", 105, 305);
 
@@ -228,25 +219,9 @@ function draw() {
     stroke(255);
     line(705, 430, 790, 430);
   }
-<<<<<<< HEAD
-  // ESTADO 8 = PANTALLA 8
-  if (estado == 8){
-    image(Fondosp[7],0 ,0, 800, 450); 
-    
-    textSize(16);
-    text("Siguiente",705,435);
-    stroke(255);
-    line(705,430,790,430);
-    
-  }
-  //ESTADO == PANTALLA 9
-  if (estado == 9){
-    image (Fondosp[8], 0, 0, 800, 450);
-=======
 
   if (estado == 8) {
     image(Fondosp[7], 0, 0, 800, 450);
->>>>>>> 695f7c95d6f6fb2f182d052836fd5ed2ace12bcc
   }
 
   //Pantalla Game Over
@@ -265,40 +240,42 @@ function draw() {
   //JUMP SCARESSS
   
   
-  //Pantalla Spring
+// Pantalla Spring 
   if (estado == 21) {
     image(Spring, 0, 0, 800, 450);
     if (!sonidoSonado) {
       grito.play();
-      sonidoSonado = true; // Marca que ya sonó
+      sonidoSonado = true;
     }
-    if (millis()-tiempo >= 4500) {
-      estado-=1;
-      tiempo = millis();
+    if (millis() - tiempo >= 4500) {
+      estado = 20; // Pasa a Game Over
+      sonidoSonado = false; // Se resetea para la próxima
     }
   }
-  
-  //Pantalla chica
+
+  // Pantalla Chica 
   if (estado == 22) {
     image(chica, 0, 0, 800, 450);
     if (!sonidoSonado) {
       grito.play();
-      sonidoSonado = true; // Marca que ya sonó
+      sonidoSonado = true;
     }
-    if (millis()-tiempo >= 4500) {
-      estado-=1;
+    if (millis() - tiempo >= 4500) {
+      estado = 20; // Pasa a Game Over
+      sonidoSonado = false;
     }
   }
-  
-  //Pantalla Freddy
-    if (estado == 23) {
+
+  // Pantalla Freddy
+  if (estado == 23) {
     image(freddy, 0, 0, 800, 450);
     if (!sonidoSonado) {
       grito.play();
-      sonidoSonado = true; // Marca que ya sonó
+      sonidoSonado = true;
     }
-    if (millis()-tiempo >= 4500) {
-      estado-=1;
+    if (millis() - tiempo >= 4500) {
+      estado = 20; // Pasa a Game Over
+      sonidoSonado = false;
     }
   }
 
@@ -343,5 +320,12 @@ function mousePressed() {
   // boton ducto derecho
   if (estado==6 && mouseX >600 && mouseX < 744 && mouseY >210 && mouseY < 260) {
     estado = 22;
+  }
+  //Boton Reiniciar
+  if (estado == 20) {
+    // Si hace clic en la zona del texto "Reiniciar"
+    if (mouseX > 320 && mouseX < 480 && mouseY > 330 && mouseY < 370) {
+      reiniciar();
+    }
   }
 }
