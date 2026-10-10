@@ -13,6 +13,9 @@ let ejeY;
 let HomeY;
 let volver = false;
 let siguiente = false;
+let sonidoClick;
+let pasos;
+let pasosSonando = false;
 
 function preload() {
   // Carga del arreglo de imágenes de fondo
@@ -22,11 +25,14 @@ function preload() {
 
   menu = loadImage("assets/IMG/menu0.gif");
   miFuente = loadFont("assets/fuente/FiveFontsatFreddy's-Regular.ttf"); //Fuente de FnaF
-
-  //Carga De Sonido del JumpScare
-  grito = loadSound("assets/musica/grito.wav");
   sangre = loadImage("assets/IMG/sangre.gif");
-
+  
+  //Carga De Sonidos
+  grito = loadSound("assets/musica/grito.wav");
+  sonidoClick = loadSound ("assets/musica/fnafclick.wav");
+  pasos = loadSound ("assets/musica/corre.wav");
+  
+  
   // Animatrónicos
   Spring = loadImage("assets/Susto/Spring.gif");
   chica = loadImage("assets/Susto/chica.gif");
@@ -42,6 +48,7 @@ function setup() {
   ejeY = 600;
   HomeY = 1100;
 }
+
 
 function draw() {
   background(0);
@@ -244,6 +251,12 @@ function draw() {
       text("*pisadas* *pisadas* *tension*... *tension*...  ", 115, 336);
       textSize(16);
       text("Narrador...", 105, 300);
+      
+      if (!pasosSonando){
+       pasos.play();
+       pasosSonando = true;
+      }
+      
     }
 
     if (millis() - tiempo >= 10000) {
@@ -366,6 +379,11 @@ function draw() {
 }
 
 function mousePressed() {
+  
+  if (sonidoClick){
+   sonidoClick.play(); 
+  }
+  
   // Botón Jugar (Estado 0)
   if (estado == 0 && mouseX > 40 && mouseX < 160 && mouseY > 215 && mouseY < 250) {
     estado = 1;
@@ -440,6 +458,7 @@ function mousePressed() {
       estado = 10;
       tiempo = millis();
       siguiente = false;
+      pasosSonando = false;
     }
   }
 
@@ -465,10 +484,14 @@ function reiniciar() {
   ejeY = 600;
   HomeY = 1100;
   sonidoSonado = false;
+  pasosSonando = false;
   siguiente = false;
   textAlign(LEFT, BASELINE);
   if (grito.isPlaying()) {
     grito.stop();
+  }
+  if (pasos && pasos.isPlaying()){
+   pasos.stop(); 
   }
 }
 
