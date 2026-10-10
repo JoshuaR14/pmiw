@@ -227,7 +227,7 @@ function draw() {
     rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("¡¡El niño desaparecido!! estaba acostado en una esquina de la habitacion, recien despierto de una siesta.", 115, 350);
+    text("¡¡El niño desaparecido!! estaba acostado en una esquina de la\nhabitación; parecia recien despierto de una siesta. Tomás al niño\ny se van hacia la salida...", 115, 350);
     textSize(16);
     text("Narrador...", 105, 300);
     
