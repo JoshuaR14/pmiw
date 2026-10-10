@@ -300,8 +300,8 @@ function mousePressed() {
   }
 
   //Atravesar Animatronico
-  if (estado == 4 && mouseX > 290 && mouseX < 435 &&  mouseY > 240 && mouseY < 290) {
-    estado=21;
+  if (estado == 4 && mouseX > 290 && mouseX < 435 &&  mouseY > 240 && mouseY < 290) { //JumScare 
+    estado=21; //JumScare
     tiempo = millis();
   }
   //Caminar al pasillo
@@ -314,15 +314,17 @@ function mousePressed() {
   }
   if (estado == 5&& mouseX >475 && mouseX <645 && mouseY >285 && mouseY < 425) { //Jumscare Freddy
     estado = 23; // Jumpscare Freddy
+    tiempo = millis();
   }
   //boton del ducto izquierdo
-  if (estado==6 && mouseX > 130 && mouseX < 272 && mouseY > 210 && mouseY < 260) {
-    estado++;
+  if (estado==6 && mouseX > 130 && mouseX < 272 && mouseY > 210 && mouseY < 260) { 
+    estado++; 
   }
 
   // boton ducto derecho
-  if (estado==6 && mouseX >600 && mouseX < 744 && mouseY >210 && mouseY < 260) {
-    estado = 22;
+  if (estado==6 && mouseX >600 && mouseX < 744 && mouseY >210 && mouseY < 260) {//JumScare Chica
+    estado = 22; //JumScare Chica
+    tiempo = millis();
   }
   //Boton Reiniciar
   if (estado == 20) {
