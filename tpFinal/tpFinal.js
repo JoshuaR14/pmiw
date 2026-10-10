@@ -10,6 +10,8 @@ let tiempo;
 let sangre;
 let freddy;
 let ejeY;
+let HomeY;
+let volver = false;
 
 function preload() {
   // Carga del arreglo de imágenes de fondo
@@ -37,6 +39,7 @@ function setup() {
   estado = 0;
   tiempo = 0;
   ejeY = 600;
+  HomeY = 1100;
 }
 
 function draw() {
@@ -304,10 +307,19 @@ function draw() {
     text("Elaborado por:\nJoshua Romero Legajo: 125681/8. \nLujan Samudio Legajo: 125683/0.",width /4, ejeY+125);
     text("Comision N2\nProfesor: Matias Jauregio Lorda.",width /4, ejeY+250);
     text("Basado en el juego: \nFive nights at freddy's.",width /4, ejeY+350);
-    
+    text("Gracias Por Su tiempo!",width /4, ejeY+425);
+    textSize(36);
+    text("Volver Al Menu", 230, HomeY);
     if(ejeY > -600){
       ejeY -= 1;
     }
+    if(HomeY > 260){
+      HomeY-=1;
+    }
+    if(HomeY == 260){
+      volver = true;
+    }
+    
   }
 
   // Coordenadas Mouse para guía
@@ -375,4 +387,7 @@ function mousePressed() {
     estado = 25;
     tiempo = millis();
 }
+  if (volver == true && mouseX > 230 && mouseX < 540 && mouseY > 205 && mouseY < 245) {
+    estado = 0;
+  }
 }
