@@ -44,6 +44,7 @@ function setup() {
 
 function draw() {
   background(0);
+  textAlign(LEFT, BASELINE);
 
   // ESTADO 0 == PANTALLA 0 / MENU
   if (estado == 0) {
@@ -266,8 +267,8 @@ function draw() {
     text(" Esconderse\n  bajo la mesa", 105, 240);
     text("  correr a\n la salida", 560, 240);
     
-<<<<<<< HEAD
-    //ESTADO 10 == PANTALLA 10
+  }
+      //ESTADO 10 == PANTALLA 10
   if (estado == 10) {
    image(Fondosp [9],0,0,800,450); 
     
@@ -280,13 +281,8 @@ function draw() {
     text("Parece que lograro Lograron esconderse del animatronico... ", 115, 336);
     textSize(16);
     text("Narrador...", 105, 300);
-    if (millis - 
-    
-=======
->>>>>>> 65ef16f7443f6594c5eec4e6bc1477ff23f4854b
+    //if (millis - 
   }
-  
-
   // --- JUMPSCARES ---
 
   // Pantalla Spring (Estado 21)
@@ -324,7 +320,7 @@ function draw() {
       estado = 20; // Pasa a Game Over
     }
   }
- 
+
 
   // --- PANTALLA GAME OVER ---
   if (estado == 20) {
@@ -372,73 +368,79 @@ function draw() {
 }
 
 function mousePressed() {
-  // Botón Jugar (Menú)
+  // Botón Jugar (Menú - Estado 0)
   if (estado == 0 && mouseX > 40 && mouseX < 130 && mouseY > 200 && mouseY < 230) {
-    estado++;
+    estado = 1;
   }
 
-  // Botón Siguiente general
-  if (estado >= 1 && estado != 4 && estado != 5 && estado != 6 && estado != 20 && estado < 21 && mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
+  // Botón Créditos (Menú - Estado 0)
+  if (estado == 0 && mouseX > 40 && mouseX < 165 && mouseY > 240 && mouseY < 265) {
+    estado = 25;
+    tiempo = millis();
+  }
+
+  // Botón Siguiente general (PANTALLAS NARRATIVAS: 1, 2, 3, 7, 8)
+  if ((estado == 1 || estado == 2 || estado == 3 || estado == 7 || estado == 8) && 
+      mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
     estado++;
   }
 
   // --- Opciones Estado 4 ---
-  // Atravesar Animatrónico (Jumpscare Spring)
-  if (estado == 4 && mouseX > 290 && mouseX < 435 && mouseY > 240 && mouseY < 290) {
-    estado = 21;
-    tiempo = millis();
-    sonidoSonado = false;
-  }
-  // Caminar al pasillo
-  if (estado == 4 && mouseX > 600 && mouseX < 745 && mouseY > 240 && mouseY < 290) {
-    estado = 5;
+  if (estado == 4) {
+    if (mouseX > 290 && mouseX < 435 && mouseY > 240 && mouseY < 290) { // Atravesar Animatrónico
+      estado = 21;
+      tiempo = millis();
+      sonidoSonado = false;
+    } else if (mouseX > 600 && mouseX < 745 && mouseY > 240 && mouseY < 290) { // Ir al Pasillo
+      estado = 5;
+    }
   }
 
   // --- Opciones Estado 5 ---
-  // Ir a la sala de seguridad
-  if (estado == 5 && mouseX > 195 && mouseX < 335 && mouseY > 385 && mouseY < 425) {
-    estado = 6;
-  }
-  // Investigar sala de la derecha (Jumpscare Freddy)
-  if (estado == 5 && mouseX > 475 && mouseX < 645 && mouseY > 385 && mouseY < 425) {
-    estado = 23;
-    tiempo = millis();
-    sonidoSonado = false;
+  if (estado == 5) {
+    if (mouseX > 195 && mouseX < 335 && mouseY > 385 && mouseY < 425) { // Sala de seguridad
+      estado = 6;
+    } else if (mouseX > 475 && mouseX < 645 && mouseY > 385 && mouseY < 425) { // Investigar derecha
+      estado = 23;
+      tiempo = millis();
+      sonidoSonado = false;
+    }
   }
 
   // --- Opciones Estado 6 ---
-  // Entrar al ducto izquierdo
-  if (estado == 6 && mouseX > 130 && mouseX < 275 && mouseY > 210 && mouseY < 260) {
-    estado = 7;
+  if (estado == 6) {
+    if (mouseX > 130 && mouseX < 275 && mouseY > 210 && mouseY < 260) { // Ducto Izquierdo
+      estado = 7;
+    } else if (mouseX > 600 && mouseX < 745 && mouseY > 210 && mouseY < 260) { // Ducto Derecho
+      estado = 22;
+      tiempo = millis();
+      sonidoSonado = false;
+    }
   }
-  // Entrar al ducto derecho (Jumpscare Chica)
-  if (estado == 6 && mouseX > 600 && mouseX < 745 && mouseY > 210 && mouseY < 260) {
-    estado = 22;
-    tiempo = millis();
-    sonidoSonado = false;
-  }
-  //--- Opciones Estado 9 ---
-  if (estado == 9 && mouseX > 550 && mouseX < 700 && mouseY >210 && mouseY < 260){
-   estado = 21;
-   tiempo = millis();
-   sonidoSonado = false;
-  }
-  if (estado == 9 && mouseX > 100 && mouseX < 240 && mouseY >210 && mouseY < 260){
-    estado = 10;
+
+  // --- Opciones Estado 9 ---
+  if (estado == 9) {
+    if (mouseX > 550 && mouseX < 695 && mouseY > 210 && mouseY < 260) { // Correr a la salida (Jumpscare)
+      estado = 21;
+      tiempo = millis();
+      sonidoSonado = false;
+    } else if (mouseX > 100 && mouseX < 245 && mouseY > 210 && mouseY < 260) { // Esconderse
+      estado = 10;
+    }
   }
 
   // --- Reiniciar desde Game Over (Estado 20) ---
   if (estado == 20) {
-    if (mouseX > 320 && mouseX < 480 && mouseY > 330 && mouseY < 370) {
+    // Rango ampliado para abarcar mejor el área centrada del texto "Reiniciar"
+    if (mouseX > 300 && mouseX < 500 && mouseY > 320 && mouseY < 380) {
       reiniciar();
     }
   }
-   if (estado == 0 && mouseX > 40 && mouseX < 165 && mouseY > 240 && mouseY < 265) {
-    estado = 25;
-    tiempo = millis();
-}
-  if (volver == true && mouseX > 230 && mouseX < 540 && mouseY > 205 && mouseY < 245) {
+
+  // Volver al menú desde Créditos (Estado 25)
+  if (estado == 25 && volver && mouseX > 230 && mouseX < 540 && mouseY > 205 && mouseY < 245) {
     estado = 0;
+    volver = false;
   }
 }
 //Funcion Reiniciar
