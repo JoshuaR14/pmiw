@@ -209,7 +209,7 @@ function draw() {
     rect(100, 300, 600, 130);
     fill(255);
     textSize(15);
-    text("Que Pintas..", 115, 350);
+    text("El ducto estaba oscuro y sucio, pero al final de todo\nse ve una luz tenue...", 115, 350);
     textSize(16);
     text("Policia...", 105, 305);
 
@@ -219,10 +219,27 @@ function draw() {
     stroke(255);
     line(705, 430, 790, 430);
   }
-
+  //ESTADO 8 == PANTALLA 8
   if (estado == 8) {
     image(Fondosp[7], 0, 0, 800, 450);
+    
+     //Dialago
+    fill(0, 120);
+    stroke(0);
+    rect(100, 300, 600, 130);
+    fill(255);
+    textSize(15);
+    text("xorra.", 115, 350);
+    textSize(16);
+    text("Narrador...", 105, 300);
+    
+    //boton siguiente
+    textSize(16);
+    text("Siguiente", 705, 435);
+    stroke(255);
+    line(705, 430, 790, 430);
   }
+  //ESTADO 9 == PANTALLA 9
   if (estado == 9) {
    image(Fondosp [8],0,0,800,450); 
   }
