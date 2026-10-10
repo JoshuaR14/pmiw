@@ -198,7 +198,7 @@ function draw() {
 
     fill(255);
     textSize(15);
-    text(" Entrar al ducto\n   Izquierdo", 132, 240);
+    text(" Entrar al ducto\n    Izquierdo", 132, 240);
     text(" Entrar al ducto\n    Derecho", 602, 240);
   }
 
@@ -243,10 +243,9 @@ function draw() {
     line(705, 430, 790, 430);
   }
 
-
   //ESTADO 9 == PANTALLA 9
   if (estado == 9) {
-    image(Fondosp [8], 0, 0, 800, 450);
+    image(Fondosp[8], 0, 0, 800, 450);
 
     //Dialago
     fill(0, 120);
@@ -265,12 +264,13 @@ function draw() {
     rect(550, 210, 145, 50);
     fill(255);
     textSize(15);
-    text(" Esconderse\n  bajo la mesa", 105, 240);
+    text(" Esconderse\n bajo la mesa", 105, 240);
     text("  correr a\n la salida", 560, 240);
   }
+
   //ESTADO 10 == PANTALLA 10
   if (estado == 10) {
-    image(Fondosp [10], 0, 0, 800, 450);
+    image(Fondosp[10], 0, 0, 800, 450);
 
     //Dialago
     fill(0, 120);
@@ -283,7 +283,7 @@ function draw() {
     text("Narrador...", 105, 300);
 
     if (millis() - tiempo >= 5000) {
-      image(Fondosp [9], 0, 0, 800, 450);
+      image(Fondosp[9], 0, 0, 800, 450);
 
       //Dialago
       fill(0, 120);
@@ -297,7 +297,7 @@ function draw() {
     }
 
     if (millis() - tiempo >= 10000) {
-      image(Fondosp [10], 0, 0, 800, 450);
+      image(Fondosp[10], 0, 0, 800, 450);
       fill(0, 120);
       stroke(0);
       rect(100, 300, 600, 130);
@@ -307,6 +307,7 @@ function draw() {
       textSize(16);
       text("Narrador...", 105, 300);
     }
+
     if (millis() - tiempo >= 12000) {
       siguiente = true;
       // Botón siguiente
@@ -319,7 +320,7 @@ function draw() {
 
   //ESTADO 11 == PANTALLA 11
   if (estado == 11) {
-    image(Fondosp [11], 0, 0, 800, 450);
+    image(Fondosp[11], 0, 0, 800, 450);
 
     //Dialago
     fill(0, 120);
@@ -329,13 +330,12 @@ function draw() {
     textSize(15);
     text("¡¡lOGRASTE SALIR!! después de una noche llena de peligros, \nlograste rescatar al niño y sacarlo de aquella pizzería. \nAhora, de camino a casa, sabes que lo peor ya pasó. \nEl pequeño está a salvo y podra reencontrarse con su familia. ", 115, 340);
     textSize(16);
-    text("Narrador...", 105, 300)
-      textSize(16);
+    text("Narrador...", 105, 300);
+    textSize(16);
     text("Siguiente", 705, 435);
     stroke(255);
     line(705, 430, 790, 430);
   }
-
 
   // --- JUMPSCARES ---
 
@@ -375,7 +375,6 @@ function draw() {
     }
   }
 
-
   // --- PANTALLA GAME OVER ---
   if (estado == 20) {
     background(0);
@@ -394,25 +393,25 @@ function draw() {
   //--- CREDITOS ---
   if (estado == 25) {
     background(0);
-    text("Trabajo Nº2 de Programación \npara medios interactivos orientada\na las tecnologías web.", width /4, ejeY);
-    text("Elaborado por:\nJoshua Romero Legajo: 125681/8. \nLujan Samudio Legajo: 125683/0.", width /4, ejeY+125);
-    text("Comision N2\nProfesor: Matias Jauregio Lorda.", width /4, ejeY+250);
-    text("Basado en el juego: \nFive nights at freddy's.", width /4, ejeY+350);
-    text("Gracias Por Su tiempo!", width /4, ejeY+425);
+    text("Trabajo Nº2 de Programación \npara medios interactivos orientada\na las tecnologías web.", width / 4, ejeY);
+    text("Elaborado por:\nJoshua Romero Legajo: 125681/8. \nLujan Samudio Legajo: 125683/0.", width / 4, ejeY + 125);
+    text("Comision N2\nProfesor: Matias Jauregio Lorda.", width / 4, ejeY + 250);
+    text("Basado en el juego: \nFive nights at freddy's.", width / 4, ejeY + 350);
+    text("Gracias Por Su tiempo!", width / 4, ejeY + 425);
     textSize(36);
     text("Volver Al Menu", 230, HomeY);
     if (ejeY > -600) {
       ejeY -= 1;
     }
     if (HomeY > 260) {
-      HomeY-=1;
+      HomeY -= 1;
     }
     if (HomeY == 260) {
       volver = true;
     }
   }
 
-  // Coordenadas Mouse para guía
+  // Coordenadas Mouse
   textAlign(LEFT, BASELINE);
   fill(255);
   stroke(0);
@@ -421,27 +420,35 @@ function draw() {
 }
 
 function mousePressed() {
-  // Botón Jugar
-  if (estado == 0 && mouseX > 40 && mouseX < 130 && mouseY > 200 && mouseY < 230) {
+  // Botón Jugar (Estado 0)
+  if (estado == 0 && mouseX > 40 && mouseX < 160 && mouseY > 215 && mouseY < 250) {
     estado = 1;
   }
 
   // Botón Créditos (Menú - Estado 0)
-  if (estado == 0 && mouseX > 40 && mouseX < 165 && mouseY > 240 && mouseY < 265) {
+  if (estado == 0 && mouseX > 40 && mouseX < 180 && mouseY > 255 && mouseY < 290) {
     estado = 25;
     tiempo = millis();
+    ejeY = 600;
+    HomeY = 1100;
+    volver = false;
   }
 
   // Botón Siguiente general
   if ((estado == 1 || estado == 2 || estado == 3 || estado == 7 || estado == 8 || (estado == 10 && siguiente == true)) &&
-    mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
+    mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 450) {
     estado++;
+    siguiente = false;
+    return; 
   }
-  //Estado Final
 
-  if (estado == 11 && mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 430) {
+  // Estado Final 
+  if (estado == 11 && mouseX > 705 && mouseX < 790 && mouseY > 405 && mouseY < 450) {
     estado = 25;
     tiempo = millis();
+    ejeY = 600;
+    HomeY = 1100;
+    volver = false;
   }
 
   // --- Opciones Estado 4 ---
@@ -486,6 +493,7 @@ function mousePressed() {
     } else if (mouseX > 100 && mouseX < 245 && mouseY > 210 && mouseY < 260) { // Esconderse
       estado = 10;
       tiempo = millis();
+      siguiente = false;
     }
   }
 
@@ -498,11 +506,12 @@ function mousePressed() {
   }
 
   // Volver al menú desde Créditos (Estado 25)
-  if (estado == 25 && volver && mouseX > 230 && mouseX < 540 && mouseY > 205 && mouseY < 245) {
+  if (estado == 25 && volver && mouseX > 230 && mouseX < 540 && mouseY > 220 && mouseY < 280) {
     estado = 0;
     volver = false;
   }
 }
+
 //Funcion Reiniciar
 function reiniciar() {
   estado = 0;
@@ -510,6 +519,7 @@ function reiniciar() {
   ejeY = 600;
   HomeY = 1100;
   sonidoSonado = false;
+  siguiente = false;
   textAlign(LEFT, BASELINE);
   if (grito.isPlaying()) {
     grito.stop();
