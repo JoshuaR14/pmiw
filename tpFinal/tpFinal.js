@@ -163,7 +163,7 @@ function draw() {
     fill(255);
     noStroke()
     textSize(14);
-    text("Caminar hacia \nla computadora",200,410);
+    text("    ir a la sala\n de seguridad",200,410);
     text("          Investigar \nsala de la derecha",480,410);
 
   }
@@ -253,6 +253,7 @@ function draw() {
   text(mouseX + " " + mouseY, mouseX, mouseY);
 }
 function mousePressed(){
+  //Boton Menu
   if(estado == 0 && mouseX > 40 && mouseX < 130 &&  mouseY > 200 && mouseY < 230){
     estado++;
   }
@@ -269,6 +270,10 @@ function mousePressed(){
   //Caminar al pasillo
   if(estado == 4 && mouseX > 600 && mouseX < 745 &&  mouseY > 240 && mouseY < 290){
     estado++;
+  }
+  //estado 5
+  if (estado == 5&& mouseX >195 && mouseX <335 && mouseY >285 && mouseY < 425){
+    estado++
   }
   //boton del ducto izquierdo
   if (estado==6 && mouseX > 130 && mouseX < 272 && mouseY > 210 && mouseY < 260){
