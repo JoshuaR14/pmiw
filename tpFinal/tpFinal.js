@@ -283,6 +283,24 @@ function draw() {
     text("Narrador...", 105, 300);
     //if (millis - 
   }
+  
+  //ESTADO 11 == PANTALLA 11
+  if(estado == 11){
+   image(Fondosp [11], 0, 0, 800,450);
+   
+    //Dialago
+    fill(0, 120);
+    stroke(0);
+    rect(100, 300, 600, 130);
+    fill(255);
+    textSize(15);
+    text("¡¡lOGRASTE SALIR!! después de una noche llena de peligros, lograste\nrescatar al niño y sacarlo de aquella pizzería. Ahora, de\ncamino a casa, sabes que lo peor ya pasó. El pequeño está a salvo y se\nreencontrara con su familia.  ", 115, 336);
+    textSize(16);
+    text("Narrador...", 105, 300)
+   
+  }
+  
+  
   // --- JUMPSCARES ---
 
   // Pantalla Spring (Estado 21)
