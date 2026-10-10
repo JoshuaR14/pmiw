@@ -14,7 +14,7 @@ let sangre;
 function preload() {
   
   // Carga De arreglo
-  for (let i = 0; i < 8; i++) {
+  for (let i = 0; i < 9; i++) {
     Fondosp [i] = loadImage("assets/IMG/foto" + i + ".png");
   }
   
@@ -194,7 +194,7 @@ function draw() {
     
     
   }
-  //ESTADO 7 == PANTALLA 7
+  //ESTADO 7 = PANTALLA 7
   if (estado == 7){
     image(Fondosp[6], 0, 0, 800, 450);
     
@@ -203,7 +203,7 @@ function draw() {
     rect(100,300,600,130);
     fill(255);
     textSize(15);
-    text("Que Pintas..",115,350);
+    text("El ducto estaba oscuro, pero al final de todo se ve\nuna luz tenue...",115,350);
     textSize(16);
     text("Policia...",105,305);
     
@@ -213,9 +213,19 @@ function draw() {
     stroke(255);
     line(705,430,790,430);
   }
-  
+  // ESTADO 8 = PANTALLA 8
   if (estado == 8){
     image(Fondosp[7],0 ,0, 800, 450); 
+    
+    textSize(16);
+    text("Siguiente",705,435);
+    stroke(255);
+    line(705,430,790,430);
+    
+  }
+  //ESTADO == PANTALLA 9
+  if (estado == 9){
+    image (Fondosp[8], 0, 0, 800, 450);
   }
   
   //Pantalla Game Over
