@@ -6,6 +6,7 @@ function preload(){
     mDerecha[i] = loadImage("assets/MoverDerecha/mover" + i + ".png");
 }
 }
+//hola mundo
 function setup() {
   createCanvas(800, 400);
   noSmooth();
