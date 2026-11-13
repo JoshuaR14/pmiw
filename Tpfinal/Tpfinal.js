@@ -2,15 +2,14 @@ let mDerecha = [];
 let spring = [];
 let f;
 let s;
-let tempo;
 let fondo;
 let fondox;
+let tempo, tempoglobal;
 
 function preload() {
   for (let i = 0; i < 3; i++) {
     mDerecha[i] = loadImage("assets/MoverDerecha/mover" + i + ".png");
-  } // <-- Faltaba cerrar esta llave
-
+  }
   for (let i = 0; i < 4; i++) {
     spring[i] = loadImage("assets/spring/spring" + i + ".png");
   }
@@ -23,8 +22,9 @@ function setup() {
   noSmooth();
   f = 0;
   s = 0;
-  tempo = millis();
   fondox = 0;
+  tempo= millis();
+  tempoglobal= millis();
 }
 
 function draw() {
@@ -44,15 +44,20 @@ function draw() {
   image(mDerecha[f], 250, 200, 50, 80);
   image(spring[s], 25, 140, 55, 150);
 
-  // Un solo temporizador actualiza los fotogramas de ambos personajes al mismo tiempo
-  if (millis() - tempo >= 200) {
-    f++;
-    s++;
-    tempo = millis();
-  }
+  // Animación personaje 1 (cada 200ms)
+    if (pasaronMilisegundos(tempo, 200)) { //Cada 0.25 Seg Muestra un Frame
+      f++;
+      tempo = millis();
+    }
+
+  // Animación Spring (cada 400ms usando su propio reloj)
+    if (pasaronMilisegundos(tempoglobal, 400)) { //Cada 0.25 Seg Muestra un Frame
+      s++;
+      tempoglobal = millis();
+    }
 
   if (f >= 3) f = 0;
-  if (s >= 4) s = 0; // Son 4 frames (0, 1, 2, 3)
+  if (s >= 4) s = 0;
 
   // Coordenadas del mouse
   fill(0);
