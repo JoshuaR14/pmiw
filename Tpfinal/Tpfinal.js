@@ -32,7 +32,6 @@ function draw(){
   for (let i = 0; i < botones.length; i++) {
     botones[i].dibujar();
   }
-  juego.mostrar();
   
   
   
