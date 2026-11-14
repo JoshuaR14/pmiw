@@ -120,9 +120,9 @@ class Juego {
         fill(255, 220, 50);
         textSize(20);
         if (this.accionPendiente === "nuevoNivel") {
-          text("¡Bien! Siguiente nivel en: " + segundosRestantes, 400, 40);
+          text("¡Bien! Siguiente nivel en: " + segundosRestantes, 380, 80);
         } else if (this.accionPendiente === "repetir") {
-          text("¡Error! Repitiendo en: " + segundosRestantes, 400, 40);
+          text("¡Error! Repitiendo en: " + segundosRestantes, 380, 80);
         }
 
         if (transcurrido >= 3000) {
