@@ -1,12 +1,12 @@
 let fondo, compu;
 let botones = [];
-//let menu;
+let menu;
 let juego;
 
 function preload(){
   fondo = loadImage("assets/fondo/fondo.png");
   compu = loadImage("assets/fondo/compu.png");
-  //menu = loadImage("assets/IMG/menu0.gif");
+  menu = loadImage("assets/menu/menu0.gif");
 }
 function setup(){
   createCanvas(800, 400)
@@ -15,7 +15,7 @@ function setup(){
   botones[1] = new Boton(312, 294, 315, 165,54, 32, color(60, 140, 255));  // Azul
   botones[2] = new Boton(402, 294, 390, 165, 54, 32, color(60, 255, 100));  // Verde
   botones[3] = new Boton(490, 294, 465, 165, 54, 32, color(255, 220, 50));  // Amarillo
-  //juego = new Juego();
+  juego = new Juego();
 }
 
 function draw(){
@@ -27,7 +27,7 @@ function draw(){
   for (let i = 0; i < botones.length; i++) {
     botones[i].dibujar();
   }
-  //juego.mostrar();
+  juego.mostrar();
   
   
   
@@ -45,5 +45,5 @@ function mousePressed() {
       console.log("Tocaste el botón número: " + i);
     }
   }
-  //juego.mousePresionado(mouseX, mouseY);
+  juego.mousePresionado(mouseX, mouseY);
 }
