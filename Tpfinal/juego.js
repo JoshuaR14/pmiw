@@ -6,6 +6,7 @@ class Juego {
     this.intentos = 3;
     this.estado = "menu";
     this.computadora = new Computadora();
+    this.jugador = new Jugador();
   }
 
   mostrar() {
@@ -131,58 +132,59 @@ class Juego {
       textSize(22);
       text("VOLVER AL MENU", 400, 305);
     }
-
-    mousePresionado(x, y) {
-      if (this.estado === "menu") {
-        // Botón JUGAR
-        if (x > 90 && x < 310 && y > 140 && y < 188) {
-          this.estado = "jugando";
-          this.computadora.iniciarNivel(this.secuencia[this.nivel]);
-        }
-        //boton instrucciones
-        if (x > 90 && x < 310 && y > 210 && y < 260) {
-          this.estado = "instrucciones";
-        }
-        // Botón CRÉDITOS
-        if (x > 90 && x < 310 && y > 285 && y < 335) {
-          this.estado = "creditos";
-        }
-      }
-      //boton volver en creditos
-      else if (this.estado === "creditos") {
-        if (x > 350 && x < 450 && y > 345 && y < 370) {
-          this.estado = "menu";
-        }
-      }
-      //boton volver en instru
-      else if (this.estado === "instrucciones") {
-        if (x > 690 && x < 770 && y > 360 && y < 380) {
-          this.estado = "menu";
-        }
-      }
-      //jugando
-      else if (this.estado === "jugando") {
-
-        let botonTocado = this.computadora.verificarClic(x, y);
-        if (botonTocado !== -1) {
-          console.log("Tocaste el botón: " + botonTocado);
-        }
-      }
-      //boton de volver al menu en perdiste
-      //else if (this.estado === "perdiste") {
-      //  if (x > 0 && x < 0 && y > 0 && y < 0) {
-      //    this.estado = "menu";
-      //    this.nivel = 0;
-      //    this.intentos = 3;
-      //    this.computadora = new Computadora();
-      //  }
-      //}
-      // Boton volver al menu en ganaste
-      //  else if (this.estado === "ganaste") {
-      //if (x > 0 && x < 0 && y > 0 && y < 0) {
-      //  this.estado = "menu";
-      //  this.nivel = 0;
-      //  this.intentos = 3;
-      //  this.computadora = new Computadora();
-    }
   }
+  mousePresionado(x, y) {
+    if (this.estado === "menu") {
+      // Botón JUGAR
+      if (x > 90 && x < 310 && y > 140 && y < 188) {
+        this.estado = "jugando";
+        this.computadora.iniciarNivel(this.secuencia[this.nivel]);
+      }
+      //boton instrucciones
+      if (x > 90 && x < 310 && y > 210 && y < 260) {
+        this.estado = "instrucciones";
+      }
+      // Botón CRÉDITOS
+      if (x > 90 && x < 310 && y > 285 && y < 335) {
+        this.estado = "creditos";
+      }
+    }
+    //boton volver en creditos
+    else if (this.estado === "creditos") {
+      if (x > 350 && x < 450 && y > 345 && y < 370) {
+        this.estado = "menu";
+      }
+    }
+    //boton volver en instru
+    else if (this.estado === "instrucciones") {
+      if (x > 690 && x < 770 && y > 360 && y < 380) {
+        this.estado = "menu";
+      }
+    }
+    //jugando
+    else if (this.estado === "jugando") {
+      let botonTocado = this.computadora.verificarClic(x, y);
+
+      if (botonTocado !== -1) {
+        this.jugador.registrarEleccion(botonTocado);
+        console.log("Tocaste el botón: " + botonTocado);
+      }
+    }
+    //boton de volver al menu en perdiste
+    //else if (this.estado === "perdiste") {
+    //  if (x > 0 && x < 0 && y > 0 && y < 0) {
+    //    this.estado = "menu";
+    //    this.nivel = 0;
+    //    this.intentos = 3;
+    //    this.computadora = new Computadora();
+    //  }
+    //}
+    // Boton volver al menu en ganaste
+    //  else if (this.estado === "ganaste") {
+    //if (x > 0 && x < 0 && y > 0 && y < 0) {
+    //  this.estado = "menu";
+    //  this.nivel = 0;
+    //  this.intentos = 3;
+    //  this.computadora = new Computadora();
+  }
+}
