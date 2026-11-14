@@ -8,6 +8,17 @@ class Juego {
     this.estado = "menu";
     this.computadora = new Computadora();
     this.jugador = new Jugador();
+
+    // Variables para la cuenta regresiva de 3 segundos
+    this.esperando = false;
+    this.tiempoEspera = 0;
+    this.accionPendiente = "";
+  }
+
+  iniciarEspera(accion) {
+    this.esperando = true;
+    this.tiempoEspera = millis();
+    this.accionPendiente = accion;
   }
 
   mostrar() {
@@ -93,10 +104,36 @@ class Juego {
       image(fondo, 0, 0, 800, 400);
       this.computadora.actualizar();
       this.computadora.dibujar();
+
       fill(255);
+      textFont(miFuente);
+      textAlign(CENTER, CENTER);
       textSize(18);
       text("Nivel " + (this.nivel + 1) + "/3", 100, 40);
       text(this.mensajeVidas, 670, 40);
+
+      // Cuenta regresiva en el centro arriba al fallar o avanzar de nivel
+      if (this.esperando) {
+        let transcurrido = millis() - this.tiempoEspera;
+        let segundosRestantes = ceil((3000 - transcurrido) / 1000);
+
+        fill(255, 220, 50);
+        textSize(20);
+        if (this.accionPendiente === "nuevoNivel") {
+          text("¡Bien! Siguiente nivel en: " + segundosRestantes, 400, 40);
+        } else if (this.accionPendiente === "repetir") {
+          text("¡Error! Repitiendo en: " + segundosRestantes, 400, 40);
+        }
+
+        if (transcurrido >= 3000) {
+          this.esperando = false;
+          if (this.accionPendiente === "nuevoNivel") {
+            this.computadora.iniciarNivel(this.secuencia[this.nivel]);
+          } else if (this.accionPendiente === "repetir") {
+            this.computadora.repetirSecuencia();
+          }
+        }
+      }
     }
     //--------------PERDISTE--------------------
     else if (this.estado === "perdiste") {
@@ -137,6 +174,7 @@ class Juego {
       // Botón JUGAR
       if (x > 90 && x < 310 && y > 140 && y < 188) {
         this.estado = "jugando";
+        this.esperando = false;
         this.jugador.reiniciar();
         this.mensajeVidas = "Tenes 3 vidas";
         this.computadora.iniciarNivel(this.secuencia[this.nivel]);
@@ -164,6 +202,11 @@ class Juego {
     }
     // Jugando
     else if (this.estado === "jugando") {
+      // Si está corriendo la cuenta regresiva de 3 segundos, ignoramos clics
+      if (this.esperando) {
+        return;
+      }
+
       let botonTocado = this.computadora.verificarClic(x, y);
 
       if (botonTocado !== -1) {
@@ -177,7 +220,7 @@ class Juego {
           if (this.intentos <= 0) {
             this.estado = "perdiste";
           } else {
-            this.computadora.repetirSecuencia();
+            this.iniciarEspera("repetir");
           }
         } else if (this.jugador.elecciones.length === this.secuencia[this.nivel]) {
           this.nivel++;
@@ -186,7 +229,7 @@ class Juego {
           if (this.nivel >= this.secuencia.length) {
             this.estado = "ganaste";
           } else {
-            this.computadora.iniciarNivel(this.secuencia[this.nivel]);
+            this.iniciarEspera("nuevoNivel");
           }
         }
       }
@@ -197,6 +240,7 @@ class Juego {
         this.estado = "menu";
         this.nivel = 0;
         this.intentos = 3;
+        this.esperando = false;
         this.mensajeVidas = "Tenes 3 vidas";
         this.jugador.reiniciar();
         this.computadora = new Computadora();
@@ -208,6 +252,7 @@ class Juego {
         this.estado = "menu";
         this.nivel = 0;
         this.intentos = 3;
+        this.esperando = false;
         this.mensajeVidas = "Tenes 3 vidas";
         this.jugador.reiniciar();
         this.computadora = new Computadora();
