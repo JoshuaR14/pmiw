@@ -1,4 +1,5 @@
 let fondo, compu, menu,tutorial, miFuente;
+let sonidoboton;
 let juego;
 
 function preload() {
@@ -7,6 +8,8 @@ function preload() {
   menu = loadImage("assets/menu/menu0.gif");
   tutorial = loadImage("assets/menu/tutorial.gif");
   miFuente = loadFont("assets/fuentes/FiveFontsatFreddy's-Regular.ttf");
+  sonidoboton = loadSound("assets/sonidos/fnafclick.wav");
+  
 }
 
 function setup() {
