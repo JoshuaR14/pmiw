@@ -18,8 +18,6 @@ class Jugador {
     }
   }
 
-
-
   reiniciar() { // borra
     this.elecciones = [];
   }

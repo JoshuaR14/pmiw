@@ -100,7 +100,7 @@ class Juego {
       this.computadora.dibujar();
       fill(255);
       textSize(18);
-      text(this.mensajeVidas, 700, 40);
+      text(this.mensajeVidas, 670, 40);
     }
     //--------------PERDISTE--------------------
 
@@ -171,10 +171,10 @@ class Juego {
 
       if (botonTocado !== -1) {
         this.jugador.registrarEleccion(botonTocado);
-        if (this.jugador.compararEleccion(this.computadora.secuencia) == false) {
+        if (this.jugador.compararElecciones(this.computadora.secuencia) == false) {
           this.intentos--;
 
-          this.mensajeVidas = "¡Error! Te quedan " + this.intentos + " vidas";
+          this.mensajeVidas = "¡Error! tenes " + this.intentos + " vidas";
 
           this.jugador.reiniciar();
 
@@ -187,14 +187,14 @@ class Juego {
       }
     }
     //boton de volver al menu en perdiste
-    //else if (this.estado === "perdiste") {
-    //  if (x > 0 && x < 0 && y > 0 && y < 0) {
-    //    this.estado = "menu";
-    //    this.nivel = 0;
-    //    this.intentos = 3;
-    //    this.computadora = new Computadora();
-    //  }
-    //}
+    else if (this.estado === "perdiste") {
+      if (x > 290 && x < 500 && y > 290 && y < 310) {
+        this.estado = "menu";
+        this.nivel = 0;
+        this.intentos = 3;
+        this.computadora = new Computadora();
+      }
+    }
     // Boton volver al menu en ganaste
     //  else if (this.estado === "ganaste") {
     //if (x > 0 && x < 0 && y > 0 && y < 0) {
