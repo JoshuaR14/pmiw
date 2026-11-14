@@ -22,16 +22,16 @@ function setup(){
 
 function draw(){
   background(220);
-  //juego.mostrar();
-  image(fondo,0,0,800,400);
-  image(compu,40, 20, 680, 360);
+  juego.mostrar();
+  //image(fondo,0,0,800,400);
+  //image(compu,40, 20, 680, 360);
   
   // Recorremos el arreglo y le pedimos a cada botón que se dibuje
   for (let i = 0; i < botones.length; i++) {
     botones[i].dibujar();
   }
   
-  juego.mostrar();
+  //juego.mostrar();
   
   
   
