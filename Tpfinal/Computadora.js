@@ -1,11 +1,16 @@
 class Computadora {
+  
+  //Constructor del objeto computadora
   constructor(){
+    
+   //Guarda en un metodo las cordenadas de los botones
     this.botones =[];
   this.botones[0] = new Boton(220, 294, 240, 165, 54, 32, color(255, 60, 60));   // Rojo
   this.botones[1] = new Boton(312, 294, 315, 165,54, 32, color(60, 140, 255));  // Azul
   this.botones[2] = new Boton(402, 294, 390, 165, 54, 32, color(60, 255, 100));  // Verde
   this.botones[3] = new Boton(490, 294, 465, 165, 54, 32, color(255, 220, 50));  // Amarillo
   
+  //Crea un objeto de la clase Secuencia
   this.secuencia = new Secuencia();
   }
   

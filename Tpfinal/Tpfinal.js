@@ -1,7 +1,9 @@
+//Creacion de variables Globales
 let fondo, fin, compu, menu,tutorial, miFuente;
 let sonidoboton;
 let juego;
 
+//Carga de Imagenes
 function preload() {
   fondo = loadImage("assets/fondo/fondo.png");
   compu = loadImage("assets/fondo/compu.png");
@@ -15,11 +17,13 @@ function preload() {
 
 function setup() {
   createCanvas(800, 400);
+  //Creas la el objeto juego en las clase Juego
   juego = new Juego();
 }
 
 function draw() {
   background(220);
+  //llamas al metodo juego.mostrar, para poder ver el juego
   juego.mostrar();
   
  
@@ -30,6 +34,7 @@ function draw() {
   
 }
 
+//funcion que devuelve al metedo juego.mousePresionado las cordenadas de mouseX y mouseY
 function mousePressed() {
   juego.mousePresionado(mouseX, mouseY);
 }
