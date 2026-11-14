@@ -21,7 +21,7 @@ class Secuencia {
     
   }
   
-  
+  //el cerebro del sistema, actualiza la secuencia, espera 0,7 seg para mostrar otra luz, compara la secuencia y mide el tiempo para que el jugador pueda clickear
   actualizar(botones){
     if (this.mostrando == true){
       if (millis() - this.tiempo > 700){
@@ -36,12 +36,15 @@ class Secuencia {
   }
 }
 }
+
+//resigna la secuencia para recorrerla otra vez
 repetir() {
     this.pasoActual = 0;
     this.tiempo = millis();
     this.mostrando = true;
   }
 
+//obtiene la secuencia que manda el jugador para compararla con la del sistema.
   obtenerPaso(indice) {
     return this.pasos[indice];
   }
