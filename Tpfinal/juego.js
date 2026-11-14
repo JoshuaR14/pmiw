@@ -4,6 +4,7 @@ class Juego {
     this.nivel = 0;
     this.secuencia = [4, 6, 8];
     this.intentos = 3;
+    this.mensajeVidas = "Tenes 3 vidas";
     this.estado = "menu";
     this.computadora = new Computadora();
     this.jugador = new Jugador();
@@ -92,11 +93,14 @@ class Juego {
       textSize(22);
       text("VOLVER", 400, 365);
     }
-    //pantalla ya jugando
+    //---------------------JUGANDO-----------------------
     else if (this.estado === "jugando") {
       image(fondo, 0, 0, 800, 400);
       this.computadora.actualizar();
       this.computadora.dibujar();
+      fill(255);
+      textSize(18);
+      text(this.mensajeVidas, 700, 40);
     }
     //--------------PERDISTE--------------------
 
@@ -167,7 +171,19 @@ class Juego {
 
       if (botonTocado !== -1) {
         this.jugador.registrarEleccion(botonTocado);
-        console.log("Tocaste el botón: " + botonTocado);
+        if (this.jugador.compararEleccion(this.computadora.secuencia) == false) {
+          this.intentos--;
+
+          this.mensajeVidas = "¡Error! Te quedan " + this.intentos + " vidas";
+
+          this.jugador.reiniciar();
+
+          if (this.intentos <= 0) {
+            this.estado = "perdiste";
+          } else {
+            this.computadora.repetirSecuencia();
+          }
+        }
       }
     }
     //boton de volver al menu en perdiste
