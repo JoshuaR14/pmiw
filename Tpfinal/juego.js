@@ -21,7 +21,7 @@ class Juego {
       //boton juhar
       fill(0, 180);
       stroke(180);
-      strokeWeight(2);
+      strokeWeight(3);
       rect(90, 220, 220, 50, 8);
       fill(255);
       noStroke();
@@ -29,10 +29,10 @@ class Juego {
       textSize(22);
       text("JUGAR", 200, 245);
 
-    //-----Boton Creditos
+    //Boton Creditos
       fill(0, 180);
       stroke(180);
-      strokeWeight(2);
+      strokeWeight(3);
       rect(90, 285, 220, 50, 8);
       fill(255);
       noStroke();
@@ -43,16 +43,18 @@ class Juego {
       background(0);
 
       fill(255);
-      textAlign(CENTER, CENTER);
+      //noStroke();
+      //textAlign(CENTER, CENTER);
       textFont(miFuente);
       textSize(32);
       text("CRÉDITOS", 400, 50);
 
       textSize(18);
-      
-      text("Trabajo Nº2 parte 2 de Programación\n para medios interactivos orientada\na las tecnologías web.", 400, 115);
       text("Elaborado por:\nJoshua Romero Legajo: 125681/8. \nLujan Samudio Legajo: 125683/0.",400, 210);
       text("Comision N2\nProfesor: Matias Jauregio Lorda.",400,290);
+      text ("Trabajo Practico N2 parte 2 de programación",400, 90);
+      text ("para medios interactivos orientadas a las tegnologias web.",400, 120);
+      text ("Basado en el juego: Five Night at Freddy's",400, 160);
 
       textSize(22);
       text("VOLVER", 400, 365);
@@ -80,7 +82,7 @@ class Juego {
 
     } else if (this.estado === "creditos") {
 
-      if (x > 300 && x < 500 && y > 290 && y < 350) {
+      if (x > 350 && x < 450 && y > 345 && y < 370) {
         this.estado = "menu";
       }
 

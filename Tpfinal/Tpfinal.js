@@ -16,6 +16,13 @@ function setup() {
 function draw() {
   background(220);
   juego.mostrar();
+  
+ 
+  fill(255);
+  stroke(0);
+  textSize(20);
+  text(mouseX + " " + mouseY, mouseX, mouseY);
+  
 }
 
 function mousePressed() {
