@@ -14,18 +14,20 @@ class Computadora {
   this.secuencia = new Secuencia();
   }
   
+  //metodo que recibe la cantidad de pasos, para generar una secuencia de luces
   iniciarNivel(cantidadPasos) {
     this.secuencia.generar(cantidadPasos);
   }
-
+  
+  //metodo que repite y muestra nuevamente la secuencia anterior, si es que el jugador erro un intento
   repetirSecuencia() {
     this.secuencia.repetir();
   }
-
+//Controla, actualiza y muestra las secuencia de las luces 
   actualizar() {
     this.secuencia.actualizar(this.botones);
   }
-
+//Dibuja la compu en pantalla y genera el los botones previamente guardados en el arreglo de this.botones
   dibujar() {
     image(compu, 40, 20, 680, 360);
     for (let i = 0; i < this.botones.length; i++) {
@@ -33,7 +35,7 @@ class Computadora {
     }
   }
   verificarClic(mx, my) {
-    // Si la compu todavía está mostrando las luces, ignoramos el clic del jugador
+    // Si la compu todavía está mostrando las luces, ignora el clic del jugador
     if (this.secuencia.mostrando) {
       return -1;
     }
