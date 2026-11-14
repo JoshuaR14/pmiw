@@ -19,10 +19,10 @@ function draw() {
   juego.mostrar();
   
  
-  fill(255);
-  stroke(0);
-  textSize(20);
-  text(mouseX + " " + mouseY, mouseX, mouseY);
+  //fill(255);
+  //stroke(0);
+  //textSize(20);
+  //text(mouseX + " " + mouseY, mouseX, mouseY);
   
 }
 

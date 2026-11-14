@@ -15,8 +15,9 @@ class Juego {
       image(menu, 0, 0, 800, 400);
 
       //----Titulo---------
-      fill (255);
+      fill(255);
       textFont(miFuente);
+      textAlign(CENTER, CENTER);
       textSize(32);
       text("Five Nights at Freddy's", width / 2, height / 4);
 
@@ -27,7 +28,6 @@ class Juego {
       rect(90, 140, 220, 50, 8);
       fill(255);
       noStroke();
-      textAlign(CENTER, CENTER);
       textSize(22);
       text("JUGAR", 200, 170);
 
@@ -50,8 +50,7 @@ class Juego {
       text("CRÉDITOS", 200, 313);
     }
     //------------INSTRUCCIONES--------------
-
-    else if (this.estado==="instrucciones") {
+    else if (this.estado === "instrucciones") {
       background(10);
       noStroke();
       fill(127, 145, 145);
@@ -69,16 +68,12 @@ class Juego {
       textSize(20);
       text("¡Completá todos los niveles para ganar!", 390, 370);
       text("Volver", 730, 370);
-      //text("jugar",60,370);
     }
     //-------------CREDITOS---------------
-
     else if (this.estado === "creditos") {
       background(0);
 
       fill(255);
-      //noStroke();
-      //textAlign(CENTER, CENTER);
       textFont(miFuente);
       textSize(32);
       text("CRÉDITOS", 400, 50);
@@ -86,9 +81,9 @@ class Juego {
       textSize(18);
       text("Elaborado por:\nJoshua Romero Legajo: 125681/8. \nLujan Samudio Legajo: 125683/0.", 400, 210);
       text("Comision N2\nProfesor: Matias Jauregio Lorda.", 400, 290);
-      text ("Trabajo Practico N2 parte 2 de programación", 400, 90);
-      text ("para medios interactivos orientadas a las tegnologias web.", 400, 120);
-      text ("Basado en el juego: Five Night at Freddy's", 400, 160);
+      text("Trabajo Practico N2 parte 2 de programación", 400, 90);
+      text("para medios interactivos orientadas a las tegnologias web.", 400, 120);
+      text("Basado en el juego: Five Night at Freddy's", 400, 160);
 
       textSize(22);
       text("VOLVER", 400, 365);
@@ -100,10 +95,10 @@ class Juego {
       this.computadora.dibujar();
       fill(255);
       textSize(18);
+      text("Nivel " + (this.nivel + 1) + "/3", 100, 40);
       text(this.mensajeVidas, 670, 40);
     }
     //--------------PERDISTE--------------------
-
     else if (this.estado === "perdiste") {
       background(0);
       fill(255, 0, 0);
@@ -120,7 +115,6 @@ class Juego {
       text("VOLVER AL MENU", 400, 305);
     }
     //----------------GANASTE--------------------
-
     else if (this.estado === "ganaste") {
       background(0);
       fill(255, 0, 0);
@@ -137,14 +131,17 @@ class Juego {
       text("VOLVER AL MENU", 400, 305);
     }
   }
+
   mousePresionado(x, y) {
     if (this.estado === "menu") {
       // Botón JUGAR
       if (x > 90 && x < 310 && y > 140 && y < 188) {
         this.estado = "jugando";
+        this.jugador.reiniciar();
+        this.mensajeVidas = "Tenes 3 vidas";
         this.computadora.iniciarNivel(this.secuencia[this.nivel]);
       }
-      //boton instrucciones
+      // Botón INSTRUCCIONES
       if (x > 90 && x < 310 && y > 210 && y < 260) {
         this.estado = "instrucciones";
       }
@@ -153,29 +150,28 @@ class Juego {
         this.estado = "creditos";
       }
     }
-    //boton volver en creditos
+    // Botón volver en créditos
     else if (this.estado === "creditos") {
       if (x > 350 && x < 450 && y > 345 && y < 370) {
         this.estado = "menu";
       }
     }
-    //boton volver en instru
+    // Botón volver en instrucciones
     else if (this.estado === "instrucciones") {
       if (x > 690 && x < 770 && y > 360 && y < 380) {
         this.estado = "menu";
       }
     }
-    //jugando
+    // Jugando
     else if (this.estado === "jugando") {
       let botonTocado = this.computadora.verificarClic(x, y);
 
       if (botonTocado !== -1) {
         this.jugador.registrarEleccion(botonTocado);
+
         if (this.jugador.compararElecciones(this.computadora.secuencia) == false) {
           this.intentos--;
-
           this.mensajeVidas = "¡Error! tenes " + this.intentos + " vidas";
-
           this.jugador.reiniciar();
 
           if (this.intentos <= 0) {
@@ -183,24 +179,39 @@ class Juego {
           } else {
             this.computadora.repetirSecuencia();
           }
+        } else if (this.jugador.elecciones.length === this.secuencia[this.nivel]) {
+          this.nivel++;
+          this.jugador.reiniciar();
+
+          if (this.nivel >= this.secuencia.length) {
+            this.estado = "ganaste";
+          } else {
+            this.computadora.iniciarNivel(this.secuencia[this.nivel]);
+          }
         }
       }
     }
-    //boton de volver al menu en perdiste
+    // Botón volver al menú en perdiste
     else if (this.estado === "perdiste") {
-      if (x > 290 && x < 500 && y > 290 && y < 310) {
+      if (x > 290 && x < 500 && y > 290 && y < 320) {
         this.estado = "menu";
         this.nivel = 0;
         this.intentos = 3;
+        this.mensajeVidas = "Tenes 3 vidas";
+        this.jugador.reiniciar();
         this.computadora = new Computadora();
       }
     }
-    // Boton volver al menu en ganaste
-    //  else if (this.estado === "ganaste") {
-    //if (x > 0 && x < 0 && y > 0 && y < 0) {
-    //  this.estado = "menu";
-    //  this.nivel = 0;
-    //  this.intentos = 3;
-    //  this.computadora = new Computadora();
+    // Botón volver al menú en ganaste
+    else if (this.estado === "ganaste") {
+      if (x > 290 && x < 500 && y > 290 && y < 320) {
+        this.estado = "menu";
+        this.nivel = 0;
+        this.intentos = 3;
+        this.mensajeVidas = "Tenes 3 vidas";
+        this.jugador.reiniciar();
+        this.computadora = new Computadora();
+      }
+    }
   }
 }
