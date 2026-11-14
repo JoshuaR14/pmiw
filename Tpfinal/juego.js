@@ -154,6 +154,7 @@ class Juego {
     //----------------GANASTE--------------------
     else if (this.estado === "ganaste") {
       background(0);
+      image(fin,0,0,800,400);
       fill(255, 0, 0);
       textFont(miFuente);
       textAlign(CENTER, CENTER);

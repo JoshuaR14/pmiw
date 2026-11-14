@@ -35,6 +35,7 @@ class Computadora {
 
     for (let i = 0; i < this.botones.length; i++) {
       if (this.botones[i].esClickeado(mx, my)) {
+        sonidoboton.play();
         this.botones[i].encender();
         return i; // Devuelve 0, 1, 2 o 3 segun que boton se toco
       }
