@@ -31,6 +31,7 @@ function draw(){
     botones[i].dibujar();
   }
   
+  juego.mostrar();
   
   
   
