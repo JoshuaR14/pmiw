@@ -1,10 +1,11 @@
-let fondo, compu, menu, miFuente;
+let fondo, compu, menu,tutorial, miFuente;
 let juego;
 
 function preload() {
   fondo = loadImage("assets/fondo/fondo.png");
   compu = loadImage("assets/fondo/compu.png");
   menu = loadImage("assets/menu/menu0.gif");
+  tutorial = loadImage("assets/menu/tutorial.gif");
   miFuente = loadFont("assets/fuentes/FiveFontsatFreddy's-Regular.ttf");
 }
 
