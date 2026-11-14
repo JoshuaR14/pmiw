@@ -27,7 +27,7 @@ class Juego {
       textSize(22);
       text("JUGAR", 200, 245);
 
-      //boton creditos
+    //-----Boton Creditos
       fill(0, 180);
       stroke(180);
       strokeWeight(2);

@@ -1,0 +1,45 @@
+class Computadora {
+  constructor(){
+    this.botones =[];
+  this.botones[0] = new Boton(220, 294, 240, 165, 54, 32, color(255, 60, 60));   // Rojo
+  this.botones[1] = new Boton(312, 294, 315, 165,54, 32, color(60, 140, 255));  // Azul
+  this.botones[2] = new Boton(402, 294, 390, 165, 54, 32, color(60, 255, 100));  // Verde
+  this.botones[3] = new Boton(490, 294, 465, 165, 54, 32, color(255, 220, 50));  // Amarillo
+  
+  this.secuencia = new Secuencia();
+  }
+  
+  iniciarNivel(cantidadPasos) {
+    this.secuencia.generar(cantidadPasos);
+  }
+
+  repetirSecuencia() {
+    this.secuencia.repetir();
+  }
+
+  actualizar() {
+    this.secuencia.actualizar(this.botones);
+  }
+
+  dibujar() {
+    image(compu, 40, 20, 680, 360);
+    for (let i = 0; i < this.botones.length; i++) {
+      this.botones[i].dibujar();
+    }
+  }
+  verificarClic(mx, my) {
+    // Si la compu todavía está mostrando las luces, ignoramos el clic del jugador
+    if (this.secuencia.mostrando) {
+      return -1;
+    }
+
+    for (let i = 0; i < this.botones.length; i++) {
+      if (this.botones[i].esClickeado(mx, my)) {
+        this.botones[i].encender();
+        return i; // Devuelve 0, 1, 2 o 3 segun que boton se toco
+      }
+    }
+
+    return -1; // No tocó ningún botón
+  }
+}
