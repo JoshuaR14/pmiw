@@ -5,6 +5,7 @@ class Juego {
     this.secuencia = [4, 6, 8];
     this.intentos = 3;
     this.estado = "menu";
+    this.computadora = new Computadora();
   }
 
   mostrar() {
@@ -55,31 +56,38 @@ class Juego {
     }
     //pantalla ya jugando
     else if (this.estado === "jugando") {
-      image(fondo, 0, 0, 800, 400);
-      image(compu, 40, 20, 680, 360);
-
-      for (let i = 0; i < botones.length; i++) {
-        botones[i].dibujar();
-      }
-    }
+       image(fondo, 0, 0, 800, 400);
+       this.computadora.actualizar();
+       this.computadora.dibujar();
+  }
   }
   mousePresionado(x, y) {
     if (this.estado === "menu") {
 
-      // boton en jugar
-      if (x > 90 && x <310 && y > 220 && y < 270) {
+      // Botón JUGAR
+      if (x > 90 && x < 310 && y > 220 && y < 270) {
         this.estado = "jugando";
+        this.computadora.iniciarNivel(this.secuencia[this.nivel]);
       }
-      // Boton en creditos
+
+      // Botón CRÉDITOS
       if (x > 90 && x < 310 && y > 285 && y < 335) {
         this.estado = "creditos";
       }
-    } 
-    
-    else if (this.estado === "creditos") {
+
+    } else if (this.estado === "creditos") {
+
       if (x > 300 && x < 500 && y > 290 && y < 350) {
         this.estado = "menu";
       }
+
+    } else if (this.estado === "jugando") {
+
+      let botonTocado = this.computadora.verificarClic(x, y);
+      if (botonTocado !== -1) {
+        console.log("Tocaste el botón: " + botonTocado);
+      }
+
     }
   }
 }
