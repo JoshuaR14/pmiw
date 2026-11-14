@@ -22,7 +22,7 @@ function setup(){
 
 function draw(){
   background(220);
-  
+  //juego.mostrar();
   image(fondo,0,0,800,400);
   image(compu,40, 20, 680, 360);
   
