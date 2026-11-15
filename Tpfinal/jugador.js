@@ -8,6 +8,7 @@ class Jugador {
     this.elecciones.push(color);
   }
 
+//compara boton uno por uno, si este es igual al de la secuencia, es true y se siguen al otro boton
   compararElecciones(secuencia) {
     let posicion = this.elecciones.length - 1;
 
