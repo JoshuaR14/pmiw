@@ -1,3 +1,5 @@
+//https://youtu.be/mxwphJWy8mc (lujan)
+
 //Creacion de variables Globales
 let fondo, fin, compu, menu,tutorial, miFuente;
 let sonidoboton;

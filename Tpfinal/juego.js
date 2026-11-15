@@ -155,18 +155,19 @@ class Juego {
     else if (this.estado === "ganaste") {
       background(0);
       image(fin,0,0,800,400);
-      fill(255, 0, 0);
+      fill(252, 245, 3);
       textFont(miFuente);
       textAlign(CENTER, CENTER);
       textSize(40);
-      text("YOU WIN", 400, 130);
+      noStroke();
+      text("YOU WIN", 180, 130);
 
       fill(255);
       textSize(22);
-      text("¡¡Rescataste al niño!!", 400, 200);
+      text("¡¡Rescataste al niño!!", 190, 200);
 
       textSize(22);
-      text("VOLVER AL MENU", 400, 305);
+      text("VOLVER AL MENU", 190, 305);
     }
   }
 
@@ -249,7 +250,7 @@ class Juego {
     }
     // Botón volver al menú en ganaste
     else if (this.estado === "ganaste") {
-      if (x > 290 && x < 500 && y > 290 && y < 320) {
+      if (x > 90 && x < 290 && y > 290 && y < 310) {
         this.estado = "menu";
         this.nivel = 0;
         this.intentos = 3;
