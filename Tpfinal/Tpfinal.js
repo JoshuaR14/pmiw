@@ -1,4 +1,5 @@
 //https://youtu.be/mxwphJWy8mc (lujan)
+//https://youtu.be/s3uRohRHMmU (Joshua)// Perdon el video
 
 //Creacion de variables Globales
 let fondo, fin, compu, menu,tutorial, miFuente;
